@@ -1,57 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import ProjectCard from '../components/ProjectCard.astro';
+import ProjectCard from '../components/ProjectCard.tsx';
 
-const projectDetails = [
-  {
-    title: '国会議事録分析システム',
-    description: '国会議事録APIからデータを収集し、政治家別の発言分析や統計情報を提供するWebアプリケーション',
-    features: ['政治家プロフィール表示', '発言検索・フィルタリング', 'トレンド分析・可視化', '委員会別活動統計'],
-    tech: {
-      backend: ['Python 3.12', 'FastAPI', 'MongoDB', 'Docker'],
-      frontend: ['Next.js 15', 'TypeScript', 'Tailwind CSS', 'Recharts'],
-      infrastructure: ['Railway', 'Vercel', 'MongoDB Atlas', 'GitHub Actions']
-    },
-    status: 'production',
-    github: 'kokkai-analysis'
-  },
-  {
-    title: 'JapanTaxSimulator',
-    description: '日本経済の税制変更がマクロ経済に与える影響を分析する動学的確率的一般均衡（DSGE）モデル',
-    features: ['消費税・所得税・法人税の影響分析', '動学的シミュレーション', '厨生分析', '政策シナリオ比較'],
-    tech: {
-      core: ['Python', 'NumPy', 'SciPy', 'Pandas'],
-      visualization: ['Matplotlib', 'Jupyter Notebook'],
-      methodology: ['DSGEモデル', 'Klein解法', 'モンテカルロシミュレーション']
-    },
-    status: 'active',
-    github: 'JapanTaxSimulator'
-  },
-  {
-    title: 'Fast-Stake Platform',
-    description: 'Web3ステーキングプラットフォーム。複数のブロックチェーンに対応し、暗号通貨のステーキングを簡単に管理',
-    features: ['マルチチェーン対応', 'リアルタイム市場データ', 'スワップ機能', 'ウォレット管理'],
-    tech: {
-      frontend: ['Next.js', 'TypeScript', 'Tailwind CSS'],
-      blockchain: ['ThirdWeb SDK', 'Ethereum', 'Web3.js'],
-      backend: ['Node.js', 'Express', 'MongoDB']
-    },
-    status: 'development',
-    github: 'fast-stake'
-  },
-  {
-    title: 'LightAgent System',
-    description: 'AIを活用した自動化エージェントシステム。様々なタスクを自動化し、業務効率化を実現',
-    features: ['タスク自動化', 'AI駆動判断', 'ワークフロー管理', 'レポート生成'],
-    tech: {
-      frontend: ['React 19', 'TypeScript', 'Tailwind CSS'],
-      backend: ['Python', 'FastAPI', 'Celery'],
-      ai: ['OpenAI API', 'LangChain', 'Vector DB']
-    },
-    status: 'development',
-    github: 'LightAgent'
-  }
-];
 ---
 
 <Layout title="実績・プロジェクト - Ludo Technologies">
@@ -94,50 +44,44 @@ const projectDetails = [
           <ProjectCard
             title="Eコマースプラットフォーム"
             description="大手小売業向けの次世代Eコマースプラットフォーム。AI推薦システムとリアルタイム在庫管理を統合し、売上向上を実現。"
-            technologies={['React', 'Node.js', 'PostgreSQL', 'Redis', 'AWS']}
-            image="/api/placeholder/400/300"
-            link="#"
-            featured={true}
+            tech={['React', 'Node.js', 'PostgreSQL', 'Redis', 'AWS']}
+            gradient="from-blue-500 to-purple-600"
+            icon="🛒"
           />
           <ProjectCard
             title="AI予測分析システム"
             description="製造業向けの需要予測システム。機械学習アルゴリズムにより在庫最適化とコスト削減を実現。"
-            technologies={['Python', 'TensorFlow', 'FastAPI', 'Docker', 'Kubernetes']}
-            image="/api/placeholder/400/300"
-            link="#"
-            featured={true}
+            tech={['Python', 'TensorFlow', 'FastAPI', 'Docker', 'Kubernetes']}
+            gradient="from-green-500 to-blue-600"
+            icon="🤖"
           />
           <ProjectCard
             title="ブロックチェーン認証システム"
             description="金融機関向けの分散型認証システム。セキュリティと透明性を両立した革新的なソリューション。"
-            technologies={['Solidity', 'Web3.js', 'React', 'Node.js', 'IPFS']}
-            image="/api/placeholder/400/300"
-            link="#"
-            featured={true}
+            tech={['Solidity', 'Web3.js', 'React', 'Node.js', 'IPFS']}
+            gradient="from-yellow-500 to-red-600"
+            icon="🔗"
           />
           <ProjectCard
             title="モバイルアプリ開発"
             description="スタートアップ向けのiOS/Androidアプリ。ユーザーエンゲージメントを重視したUXデザイン。"
-            technologies={['React Native', 'TypeScript', 'Firebase', 'Redux']}
-            image="/api/placeholder/400/300"
-            link="#"
-            featured={false}
+            tech={['React Native', 'TypeScript', 'Firebase', 'Redux']}
+            gradient="from-purple-500 to-pink-600"
+            icon="📱"
           />
           <ProjectCard
             title="クラウド移行プロジェクト"
             description="レガシーシステムのクラウド移行。マイクロサービスアーキテクチャへの段階的移行を実現。"
-            technologies={['AWS', 'Docker', 'Kubernetes', 'Terraform', 'Jenkins']}
-            image="/api/placeholder/400/300"
-            link="#"
-            featured={false}
+            tech={['AWS', 'Docker', 'Kubernetes', 'Terraform', 'Jenkins']}
+            gradient="from-indigo-500 to-blue-700"
+            icon="☁️"
           />
           <ProjectCard
             title="データ分析ダッシュボード"
             description="企業向けのリアルタイムデータ分析ダッシュボード。ビジネスインサイトの可視化を実現。"
-            technologies={['Vue.js', 'D3.js', 'Python', 'Apache Kafka', 'Elasticsearch']}
-            image="/api/placeholder/400/300"
-            link="#"
-            featured={false}
+            tech={['Vue.js', 'D3.js', 'Python', 'Apache Kafka', 'Elasticsearch']}
+            gradient="from-teal-500 to-green-600"
+            icon="📊"
           />
         </div>
       </div>

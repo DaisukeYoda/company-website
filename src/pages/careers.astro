@@ -252,8 +252,8 @@ import Layout from '../layouts/Layout.astro';
 
   document.addEventListener('DOMContentLoaded', () => {
     // なぜLudo Technologiesで働くのか？セクションのアニメーション
-    gsap.utils.toArray('.feature-card').forEach((card, i) => {
-      gsap.fromTo(card, 
+    gsap.utils.toArray('.feature-card').forEach((card) => {
+      gsap.fromTo(card as Element, 
         { opacity: 0, y: 50 },
         { 
           opacity: 1, 
@@ -261,7 +261,7 @@ import Layout from '../layouts/Layout.astro';
           duration: 1,
           ease: "power3.out",
           scrollTrigger: {
-            trigger: card,
+            trigger: card as Element,
             start: "top 80%",
             toggleActions: "play none none none",
           }
@@ -271,7 +271,7 @@ import Layout from '../layouts/Layout.astro';
 
     // 募集職種セクションのアニメーション
     gsap.utils.toArray('.job-card').forEach((card, i) => {
-      gsap.fromTo(card, 
+      gsap.fromTo(card as Element, 
         { opacity: 0, x: i % 2 === 0 ? -50 : 50 }, // 左右から交互にフェードイン
         { 
           opacity: 1, 
@@ -279,7 +279,7 @@ import Layout from '../layouts/Layout.astro';
           duration: 1.2,
           ease: "power3.out",
           scrollTrigger: {
-            trigger: card,
+            trigger: card as Element,
             start: "top 80%",
             toggleActions: "play none none none",
           }
@@ -307,12 +307,12 @@ import Layout from '../layouts/Layout.astro';
     }
 
     // 動機入力フォームの文字数カウンター
-    const motivationTextarea = document.getElementById('motivation');
+    const motivationTextarea = document.getElementById('motivation') as HTMLTextAreaElement;
     const motivationCharsLeft = document.getElementById('motivation-chars-left');
     if (motivationTextarea && motivationCharsLeft) {
       motivationTextarea.addEventListener('input', () => {
         const remaining = 200 - motivationTextarea.value.length;
-        motivationCharsLeft.textContent = remaining;
+        motivationCharsLeft.textContent = remaining.toString();
       });
     }
   });

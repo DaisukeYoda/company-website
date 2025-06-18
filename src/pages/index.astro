@@ -889,19 +889,20 @@ const projects = [
 
     // パーティクルエフェクト
     const particleContainer = document.getElementById('particle-container');
-    for (let i = 0; i < 30; i++) {
-      const particle = document.createElement('div');
-      particle.style.cssText = `
-        position: absolute;
-        width: 4px;
-        height: 4px;
-        background: linear-gradient(45deg, #667eea, #764ba2);
-        border-radius: 50%;
-        pointer-events: none;
-        opacity: 0;
-      `;
-      
-      particleContainer.appendChild(particle);
+    if (particleContainer) {
+      for (let i = 0; i < 30; i++) {
+        const particle = document.createElement('div');
+        particle.style.cssText = `
+          position: absolute;
+          width: 4px;
+          height: 4px;
+          background: linear-gradient(45deg, #667eea, #764ba2);
+          border-radius: 50%;
+          pointer-events: none;
+          opacity: 0;
+        `;
+        
+        particleContainer.appendChild(particle);
 
       gsap.set(particle, {
         x: Math.random() * window.innerWidth,
@@ -920,6 +921,7 @@ const projects = [
         ease: "power1.inOut",
         delay: Math.random() * 2
       });
+      }
     }
 
     // 基本的なフェードインアニメーション
@@ -1127,7 +1129,7 @@ const projects = [
 
     // 事業セクション専用アニメーション
     const businessSections = document.querySelectorAll('section');
-    businessSections.forEach((section, sectionIndex) => {
+    businessSections.forEach((section) => {
       // 事業セクションかどうかを判定
       if (section.querySelector('.business-content')) {
         
@@ -1189,8 +1191,6 @@ const projects = [
         const businessBadge = section.querySelector('.business-badge');
         const businessTitle = section.querySelector('.business-title');
         const businessDescription = section.querySelector('.business-description');
-        const businessTech = section.querySelector('.business-tech');
-        const businessServices = section.querySelector('.business-services');
         const businessCta = section.querySelector('.business-cta');
         const businessImage = section.querySelector('.business-image');
 
