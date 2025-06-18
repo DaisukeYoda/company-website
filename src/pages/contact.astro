@@ -2,7 +2,11 @@
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout title="お問い合わせ - Ludo Technologies">
+<Layout 
+  title="お問い合わせ - Ludo Technologies | Web3・AI開発のご相談"
+  description="Ludo TechnologiesへのWeb3・AI・システム開発のご相談はこちら。ブロックチェーン、機械学習、クラウドインフラ、React・Next.js開発の専門チームが対応。無料相談・見積もり承ります。"
+  keywords="Web3開発相談,AI開発相談,ブロックチェーン開発,お問い合わせ,無料相談,見積もり,システム開発,技術コンサルティング,React開発"
+>
   <section class="py-20 bg-white dark:bg-gray-900">
     <div class="container mx-auto px-6 max-w-4xl">
       <h1 class="text-4xl md:text-5xl font-bold text-center mb-4 text-primary-600 dark:text-primary-400">
@@ -149,15 +153,42 @@ import Layout from '../layouts/Layout.astro';
           const data = await response.json();
 
           if (response.ok) {
+            // Google Analytics イベント送信（成功時）
+            if (typeof window.trackFormSubmission === 'function') {
+              const serviceType = formData.get('service') || 'general';
+              window.trackFormSubmission('contact_form', 'web_form');
+              window.trackEvent('contact_form_success', {
+                service_type: serviceType,
+                form_method: 'contact_page'
+              });
+            }
+
             contactFormMessage.textContent = 'お問い合わせありがとうございます。内容を確認後、ご連絡いたします。';
             contactFormMessage.className = 'mt-6 text-center text-lg font-semibold text-green-600 dark:text-green-400';
             contactForm.reset();
           } else {
+            // Google Analytics イベント送信（エラー時）
+            if (typeof window.trackEvent === 'function') {
+              window.trackEvent('contact_form_error', {
+                error_type: 'server_error',
+                error_message: data.message || 'unknown_error'
+              });
+            }
+
             contactFormMessage.textContent = `送信に失敗しました: ${data.message || '不明なエラー'}`;
             contactFormMessage.className = 'mt-6 text-center text-lg font-semibold text-red-600 dark:text-red-400';
           }
         } catch (error) {
           console.error('Fetch error:', error);
+          
+          // Google Analytics イベント送信（ネットワークエラー時）
+          if (typeof window.trackEvent === 'function') {
+            window.trackEvent('contact_form_error', {
+              error_type: 'network_error',
+              error_message: error.message || 'fetch_failed'
+            });
+          }
+
           contactFormMessage.textContent = 'お問い合わせ中にエラーが発生しました。もう一度お試しください。'
           contactFormMessage.className = 'mt-6 text-center text-lg font-semibold text-red-600 dark:text-red-400';
         } finally {

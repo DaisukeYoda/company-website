@@ -1,0 +1,126 @@
+---
+// Google Analytics イベントトラッキング用コンポーネント
+const GA_MEASUREMENT_ID = import.meta.env.PUBLIC_GA_MEASUREMENT_ID || 'G-XXXXXXXXXX';
+---
+
+{GA_MEASUREMENT_ID !== 'G-XXXXXXXXXX' && (
+  <script is:inline define:vars={{ GA_MEASUREMENT_ID }}>
+    // カスタムイベント送信関数
+    window.trackEvent = function(eventName, parameters = {}) {
+      if (typeof gtag !== 'undefined') {
+        gtag('event', eventName, {
+          ...parameters,
+          send_to: GA_MEASUREMENT_ID
+        });
+      }
+    };
+
+    // お問い合わせフォーム送信追跡
+    window.trackFormSubmission = function(formType, method = 'form') {
+      window.trackEvent('form_submit', {
+        form_type: formType,
+        method: method,
+        page_location: window.location.href,
+        page_title: document.title
+      });
+    };
+
+    // 外部リンククリック追跡
+    window.trackExternalLink = function(url, linkText) {
+      window.trackEvent('click', {
+        link_url: url,
+        link_text: linkText,
+        event_category: 'external_link'
+      });
+    };
+
+    // ダウンロード追跡
+    window.trackDownload = function(fileName, fileType) {
+      window.trackEvent('file_download', {
+        file_name: fileName,
+        file_type: fileType,
+        page_location: window.location.href
+      });
+    };
+
+    // スクロール深度追跡
+    let scrollDepthTracked = [];
+    window.trackScrollDepth = function() {
+      const scrollPercent = Math.round(
+        (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100
+      );
+      
+      [25, 50, 75, 90].forEach(threshold => {
+        if (scrollPercent >= threshold && !scrollDepthTracked.includes(threshold)) {
+          scrollDepthTracked.push(threshold);
+          window.trackEvent('scroll', {
+            scroll_depth: threshold,
+            page_location: window.location.href
+          });
+        }
+      });
+    };
+
+    // ページ滞在時間追跡
+    let startTime = Date.now();
+    window.trackEngagement = function() {
+      const timeOnPage = Math.round((Date.now() - startTime) / 1000);
+      
+      if (timeOnPage > 30) { // 30秒以上の場合のみ
+        window.trackEvent('page_engagement', {
+          engagement_time_msec: timeOnPage * 1000,
+          page_location: window.location.href
+        });
+      }
+    };
+
+    // ページ読み込み完了時にイベントリスナーを設定
+    document.addEventListener('DOMContentLoaded', function() {
+      // スクロール深度追跡
+      let scrollTimeout;
+      window.addEventListener('scroll', function() {
+        clearTimeout(scrollTimeout);
+        scrollTimeout = setTimeout(window.trackScrollDepth, 250);
+      });
+
+      // ページ離脱時に滞在時間を記録
+      window.addEventListener('beforeunload', window.trackEngagement);
+
+      // 外部リンクの自動追跡
+      document.querySelectorAll('a[href^="http"]').forEach(link => {
+        if (!link.href.includes(window.location.hostname)) {
+          link.addEventListener('click', function() {
+            window.trackExternalLink(this.href, this.textContent || this.innerText);
+          });
+        }
+      });
+
+      // メールリンクの追跡
+      document.querySelectorAll('a[href^="mailto:"]').forEach(link => {
+        link.addEventListener('click', function() {
+          window.trackEvent('email_click', {
+            email_address: this.href.replace('mailto:', ''),
+            page_location: window.location.href
+          });
+        });
+      });
+
+      // 電話リンクの追跡
+      document.querySelectorAll('a[href^="tel:"]').forEach(link => {
+        link.addEventListener('click', function() {
+          window.trackEvent('phone_click', {
+            phone_number: this.href.replace('tel:', ''),
+            page_location: window.location.href
+          });
+        });
+      });
+    });
+  </script>
+)}
+
+<style>
+  /* Google Analytics用の非表示要素 */
+  .ga-hidden {
+    display: none !important;
+  }
+</style>
