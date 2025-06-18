@@ -1,110 +1,1406 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import ProjectCard from '../components/ProjectCard.tsx';
+import web3Image from '../assets/business/web3.png';
+import aiImage from '../assets/business/ai.png';
+import cloudImage from '../assets/business/cloud.png';
+import { Image } from 'astro:assets';
 
 const projects = [
   {
-    title: '国会議事録分析システム',
-    description: '政治家の発言分析とトレンド可視化',
-    tech: ['FastAPI', 'Next.js', 'MongoDB'],
+    title: 'フロントエンド開発',
+    description: 'React、Vue.js、Next.jsを活用したモダンなWebアプリケーション開発',
+    tech: ['React', 'Vue.js', 'Next.js', 'TypeScript'],
     gradient: 'from-blue-400 to-cyan-300',
-    icon: '📊'
+    icon: '💻'
   },
   {
-    title: 'JapanTaxSimulator',
-    description: '日本経済の税制影響シミュレーション',
-    tech: ['Python', 'DSGE', 'Jupyter'],
+    title: 'バックエンド開発',
+    description: 'Node.js、Python、Javaによるスケーラブルなサーバーサイド開発',
+    tech: ['Node.js', 'Python', 'Java', 'PostgreSQL'],
     gradient: 'from-green-400 to-emerald-300',
-    icon: '💹'
+    icon: '⚙️'
   },
   {
-    title: 'Fast-Stake Platform',
-    description: 'Web3ステーキングプラットフォーム',
-    tech: ['Next.js', 'Web3', 'Blockchain'],
+    title: 'クラウドインフラ',
+    description: 'AWS、Azure、GCPを活用したクラウドネイティブなインフラ構築',
+    tech: ['AWS', 'Docker', 'Kubernetes', 'Terraform'],
     gradient: 'from-purple-400 to-pink-300',
-    icon: '🔗'
+    icon: '☁️'
   },
   {
-    title: 'LightAgent System',
-    description: 'AI駆動の自動化エージェント',
-    tech: ['React', 'TypeScript', 'AI'],
+    title: 'データサイエンス',
+    description: '機械学習、AI、データ分析によるビジネス価値の創出',
+    tech: ['Python', 'TensorFlow', 'Pandas', 'Jupyter'],
     gradient: 'from-orange-400 to-red-300',
-    icon: '🤖'
+    icon: '📊'
   }
 ];
 ---
 
-<Layout title="Tech Lab - Modern Tech Solutions">
+<Layout title="Ludo Technologies - Modern Tech Solutions">
+  <!-- Mouse Follower -->
+  <div id="mouse-follower" class="fixed w-12 h-12 bg-gradient-to-r from-primary-400 to-accent-400 rounded-full pointer-events-none z-50 opacity-0 mix-blend-difference"></div>
+  
+  <!-- Particle Container -->
+  <div id="particle-container" class="fixed inset-0 pointer-events-none z-10"></div>
+
   <!-- Hero Section -->
-  <section class="relative overflow-hidden bg-white dark:bg-gray-900">
-    <div class="absolute inset-0 bg-gradient-to-br from-primary-100 via-white to-accent-100 dark:from-gray-900 dark:via-gray-900 dark:to-gray-800 opacity-50"></div>
+  <section class="relative overflow-hidden bg-white dark:bg-gray-900 min-h-screen flex items-center">
+    <!-- Animated Background -->
+    <div class="absolute inset-0">
+      <div class="absolute top-0 left-0 w-96 h-96 bg-gradient-to-br from-primary-400/20 to-accent-400/20 rounded-full blur-3xl animate-float"></div>
+      <div class="absolute bottom-0 right-0 w-96 h-96 bg-gradient-to-br from-accent-400/20 to-primary-400/20 rounded-full blur-3xl animate-float" style="animation-delay: -3s;"></div>
+      <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-gradient-to-br from-purple-400/10 to-pink-400/10 rounded-full blur-2xl animate-float" style="animation-delay: -1.5s;"></div>
+      
+      <!-- 3D Floating Elements -->
+      <div class="floating-element absolute top-20 right-20 w-20 h-20 bg-gradient-to-br from-blue-400 to-purple-400 rounded-2xl opacity-20 rotate-12"></div>
+      <div class="floating-element absolute bottom-32 left-32 w-16 h-16 bg-gradient-to-br from-green-400 to-blue-400 rounded-full opacity-20 -rotate-12"></div>
+      <div class="floating-element absolute top-1/3 left-1/4 w-12 h-12 bg-gradient-to-br from-pink-400 to-red-400 rounded-lg opacity-20 rotate-45"></div>
+    </div>
+    
     <div class="relative container mx-auto px-6 py-24 md:py-32">
       <div class="text-center">
-        <h1 class="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-primary-600 to-accent-600 bg-clip-text text-transparent animate-gradient-x">
-          次世代テクノロジーで
-          <br />ビジネスを革新する
+        <div class="mb-8">
+          <div class="inline-flex items-center px-4 py-2 rounded-full bg-gradient-to-r from-primary-100 to-accent-100 dark:from-primary-900/30 dark:to-accent-900/30 border border-primary-200 dark:border-primary-700 text-primary-700 dark:text-primary-300 text-sm font-medium animate-fade-in-up">
+            🚀 次世代テクノロジーソリューション
+          </div>
+        </div>
+        <h1 class="text-5xl md:text-7xl font-bold mb-8 text-primary-600 dark:text-primary-400 leading-tight">
+          <span class="block animate-text-reveal" id="hero-title-1">
+            <span class="hidden sm:inline">次世代テクノロジーで</span>
+            <span class="sm:hidden">次世代<br>テクノロジーで</span>
+          </span>
+          <span class="block animate-text-reveal" id="hero-title-2" style="animation-delay: 0.3s;">
+            <span class="hidden sm:inline">ビジネスを革新する</span>
+            <span class="sm:hidden">ビジネスを<br>革新する</span>
+          </span>
         </h1>
-        <p class="text-xl text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto">
-          政策分析、フィンテック、ブロックチェーン、AIの最先端ソリューションを提供
+        
+        <p class="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed animate-fade-in-up" style="animation-delay: 0.6s;">
+          政策分析、フィンテック、ブロックチェーン、AIの最先端ソリューションを提供し、
+          <span class="text-primary-600 dark:text-primary-400 font-semibold">未来を創造</span>します
         </p>
-        <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <a href="/projects" class="inline-flex items-center px-6 py-3 rounded-lg bg-gradient-to-r from-primary-600 to-primary-700 text-white font-medium hover:from-primary-700 hover:to-primary-800 transition-all transform hover:scale-105">
+        
+        <div class="flex flex-col sm:flex-row gap-6 justify-center animate-fade-in-up" style="animation-delay: 0.9s;">
+          <a href="/projects" class="group inline-flex items-center px-8 py-4 rounded-xl bg-gradient-to-r from-primary-600 to-primary-700 text-white font-semibold text-lg hover:from-primary-700 hover:to-primary-800 transition-all transform hover:scale-105 hover:shadow-2xl shadow-lg magnet-button">
             プロジェクトを見る
-            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg class="w-6 h-6 ml-3 group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
             </svg>
           </a>
-          <a href="/contact" class="inline-flex items-center px-6 py-3 rounded-lg border-2 border-primary-600 text-primary-600 dark:text-primary-400 font-medium hover:bg-primary-50 dark:hover:bg-gray-800 transition-all">
+          <a href="/contact" class="group inline-flex items-center px-8 py-4 rounded-xl border-2 border-primary-600 text-primary-600 dark:text-primary-400 font-semibold text-lg hover:bg-primary-50 dark:hover:bg-gray-800 transition-all transform hover:scale-105 magnet-button">
             お問い合わせ
+            <svg class="w-6 h-6 ml-3 group-hover:rotate-12 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
+            </svg>
           </a>
+        </div>
+        
+        <!-- Stats Section -->
+        <div class="grid grid-cols-3 gap-8 mt-16 max-w-2xl mx-auto animate-fade-in-up" style="animation-delay: 1.2s;">
+          <div class="text-center stat-item">
+            <div class="text-3xl md:text-4xl font-bold text-primary-600 dark:text-primary-400 mb-2 counter" data-target="50">0</div>
+            <div class="text-gray-600 dark:text-gray-400 text-sm">完了プロジェクト</div>
+          </div>
+          <div class="text-center stat-item">
+            <div class="text-3xl md:text-4xl font-bold text-accent-600 dark:text-accent-400 mb-2 counter" data-target="95">0</div>
+            <div class="text-gray-600 dark:text-gray-400 text-sm">顧客満足度</div>
+          </div>
+          <div class="text-center stat-item">
+            <div class="text-3xl md:text-4xl font-bold text-purple-600 dark:text-purple-400 mb-2 counter" data-target="24">0</div>
+            <div class="text-gray-600 dark:text-gray-400 text-sm">技術スタック</div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Projects Preview -->
-  <section class="py-20 bg-gray-50 dark:bg-gray-800">
-    <div class="container mx-auto px-6">
-      <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-900 dark:text-white">
-        主要プロジェクト
+  <section class="py-24 bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-900 relative overflow-hidden">
+    <div class="absolute inset-0 bg-grid-pattern opacity-5"></div>
+    <div class="relative container mx-auto px-6">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl md:text-5xl font-bold mb-6 text-gray-900 dark:text-white">
+          技術エクスパート領域
       </h2>
+        <p class="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+          各分野の専門技術を駆使し、お客様のビジネス課題を解決します
+        </p>
+      </div>
       <div class="grid md:grid-cols-2 gap-8">
-        {projects.map((project) => (
+        {projects.map((project, index) => (
+          <div class="project-card" data-index={index}>
           <ProjectCard client:visible {...project} />
+          </div>
         ))}
       </div>
     </div>
   </section>
 
+  <!-- SVG Divider -->
+  <div class="w-full overflow-hidden leading-none">
+    <svg viewBox="0 0 1440 100" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-12 md:h-24">
+      <path fill="#f3f4f6" d="M0,100 C480,0 960,100 1440,0 L1440,100 L0,100 Z"></path>
+    </svg>
+  </div>
+
+  <!-- Web3事業 Section -->
+  <section class="py-24 bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-900 relative overflow-hidden">
+    <!-- アニメーション背景 -->
+    <div class="absolute inset-0">
+      <div class="absolute top-0 left-0 w-96 h-96 bg-gradient-to-br from-purple-400/20 to-blue-600/20 rounded-full blur-3xl animate-float"></div>
+      <div class="absolute bottom-0 right-0 w-96 h-96 bg-gradient-to-br from-blue-400/20 to-purple-600/20 rounded-full blur-3xl animate-float" style="animation-delay: -3s;"></div>
+      <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-gradient-to-br from-purple-400/10 to-pink-400/10 rounded-full blur-2xl animate-float" style="animation-delay: -1.5s;"></div>
+      
+      <!-- 3D Floating Elements -->
+      <div class="floating-element absolute top-20 right-20 w-20 h-20 bg-gradient-to-br from-purple-400 to-blue-400 rounded-2xl opacity-20 rotate-12"></div>
+      <div class="floating-element absolute bottom-32 left-32 w-16 h-16 bg-gradient-to-br from-blue-400 to-purple-400 rounded-full opacity-20 -rotate-12"></div>
+      <div class="floating-element absolute top-1/3 left-1/4 w-12 h-12 bg-gradient-to-br from-pink-400 to-purple-400 rounded-lg opacity-20 rotate-45"></div>
+    </div>
+    
+    <div class="relative container mx-auto px-6">
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+        <!-- テキストコンテンツ -->
+        <div class="space-y-8 business-content">
+          <div class="inline-flex items-center px-4 py-2 bg-gradient-to-r from-purple-500 to-blue-600 text-white rounded-full text-sm font-medium mb-4 business-badge">
+            🔗 Web3事業
+          </div>
+          <h2 class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white leading-tight business-title">
+            <span class="hidden sm:inline">ブロックチェーンで<br>
+            <span class="bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
+              未来を創造
+            </span></span>
+            <span class="sm:hidden">ブロックチェーンで<br>
+            <span class="bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
+              未来を<br>創造
+            </span></span>
+          </h2>
+          <p class="text-xl text-gray-600 dark:text-gray-300 leading-relaxed business-description">
+            分散型技術を活用し、透明性と信頼性を重視したWeb3ソリューションを提供します。
+            ブロックチェーン、NFT、DeFiなど、次世代のデジタルエコシステムを構築します。
+          </p>
+          
+          <!-- 技術スタック -->
+          <div class="space-y-4 business-tech">
+            <h3 class="text-lg font-semibold text-gray-900 dark:text-white">主要技術</h3>
+            <div class="flex flex-wrap gap-3">
+              <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 rounded-full text-sm tech-tag">Ethereum</span>
+              <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-full text-sm tech-tag">Solidity</span>
+              <span class="px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 rounded-full text-sm tech-tag">Web3.js</span>
+              <span class="px-3 py-1 bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-300 rounded-full text-sm tech-tag">IPFS</span>
+              <span class="px-3 py-1 bg-pink-100 dark:bg-pink-900/30 text-pink-700 dark:text-pink-300 rounded-full text-sm tech-tag">NFT</span>
+              <span class="px-3 py-1 bg-indigo-100 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300 rounded-full text-sm tech-tag">DeFi</span>
+            </div>
+          </div>
+
+          <!-- サービス一覧 -->
+          <div class="grid grid-cols-2 gap-4 business-services">
+            <div class="flex items-start space-x-3 service-item">
+              <div class="w-6 h-6 bg-purple-500 rounded-full flex items-center justify-center text-white text-sm mt-0.5">✓</div>
+              <div>
+                <h4 class="font-semibold text-gray-900 dark:text-white">ブロックチェーン開発</h4>
+                <p class="text-sm text-gray-600 dark:text-gray-400">スマートコントラクト・dApps開発</p>
+              </div>
+            </div>
+            <div class="flex items-start space-x-3 service-item">
+              <div class="w-6 h-6 bg-purple-500 rounded-full flex items-center justify-center text-white text-sm mt-0.5">✓</div>
+              <div>
+                <h4 class="font-semibold text-gray-900 dark:text-white">NFT/トークン発行</h4>
+                <p class="text-sm text-gray-600 dark:text-gray-400">デジタルアセット・トークン設計</p>
+              </div>
+            </div>
+            <div class="flex items-start space-x-3 service-item">
+              <div class="w-6 h-6 bg-purple-500 rounded-full flex items-center justify-center text-white text-sm mt-0.5">✓</div>
+              <div>
+                <h4 class="font-semibold text-gray-900 dark:text-white">分散型アプリケーション</h4>
+                <p class="text-sm text-gray-600 dark:text-gray-400">dApps・DeFiプロトコル開発</p>
+              </div>
+            </div>
+            <div class="flex items-start space-x-3 service-item">
+              <div class="w-6 h-6 bg-purple-500 rounded-full flex items-center justify-center text-white text-sm mt-0.5">✓</div>
+              <div>
+                <h4 class="font-semibold text-gray-900 dark:text-white">セキュリティ監査</h4>
+                <p class="text-sm text-gray-600 dark:text-gray-400">スマートコントラクト監査</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- CTA -->
+          <div class="pt-4">
+            <a href="/contact" class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-purple-600 to-blue-600 text-white font-semibold rounded-lg hover:from-purple-700 hover:to-blue-700 transition-all transform hover:scale-105 magnet-button business-cta">
+              お問い合わせ
+              <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- 画像・ビジュアル -->
+        <div class="relative business-visual hidden md:block">
+          <div class="bg-gradient-to-br from-purple-500/10 to-blue-500/10 rounded-3xl p-8 border border-purple-200 dark:border-purple-700 backdrop-blur-sm">
+            <Image src={web3Image} alt="Web3事業イメージ" width={600} height={600} class="w-full h-auto rounded-2xl shadow-lg mb-6 business-image" />
+            <div class="space-y-4">
+              <div class="flex items-center space-x-2">
+                <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+                <span class="text-sm text-gray-600 dark:text-gray-400">ブロックチェーンネットワーク接続済み</span>
+              </div>
+              <div class="flex items-center space-x-2">
+                <div class="w-3 h-3 bg-blue-500 rounded-full"></div>
+                <span class="text-sm text-gray-600 dark:text-gray-400">スマートコントラクト実行中</span>
+              </div>
+              <div class="flex items-center space-x-2">
+                <div class="w-3 h-3 bg-purple-500 rounded-full"></div>
+                <span class="text-sm text-gray-600 dark:text-gray-400">NFTトランザクション処理中</span>
+              </div>
+            </div>
+          </div>
+          
+          <!-- 浮遊する要素 -->
+          <div class="absolute -top-4 -right-4 w-16 h-16 bg-gradient-to-br from-purple-400 to-pink-500 rounded-full opacity-20 animate-pulse floating-element"></div>
+          <div class="absolute -bottom-4 -left-4 w-12 h-12 bg-gradient-to-br from-blue-400 to-cyan-500 rounded-full opacity-20 animate-pulse delay-1000 floating-element"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SVG Divider -->
+  <div class="w-full overflow-hidden leading-none rotate-180">
+    <svg viewBox="0 0 1440 100" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-12 md:h-24">
+      <path fill="#f3f4f6" d="M0,0 C480,100 960,0 1440,100 L1440,0 L0,0 Z"></path>
+    </svg>
+  </div>
+
+  <!-- AI事業 Section -->
+  <section class="py-24 bg-white dark:bg-gray-900 relative overflow-hidden">
+    <!-- アニメーション背景 -->
+    <div class="absolute inset-0">
+      <div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-orange-400/20 to-pink-600/20 rounded-full blur-3xl animate-float"></div>
+      <div class="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-br from-pink-400/20 to-orange-600/20 rounded-full blur-3xl animate-float" style="animation-delay: -3s;"></div>
+      <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-gradient-to-br from-orange-400/10 to-red-400/10 rounded-full blur-2xl animate-float" style="animation-delay: -1.5s;"></div>
+      
+      <!-- 3D Floating Elements -->
+      <div class="floating-element absolute top-20 left-20 w-20 h-20 bg-gradient-to-br from-orange-400 to-pink-400 rounded-2xl opacity-20 -rotate-12"></div>
+      <div class="floating-element absolute bottom-32 right-32 w-16 h-16 bg-gradient-to-br from-pink-400 to-orange-400 rounded-full opacity-20 rotate-12"></div>
+      <div class="floating-element absolute top-1/3 right-1/4 w-12 h-12 bg-gradient-to-br from-red-400 to-orange-400 rounded-lg opacity-20 -rotate-45"></div>
+    </div>
+    
+    <div class="relative container mx-auto px-6">
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+        <!-- 画像・ビジュアル -->
+        <div class="relative order-2 lg:order-1 business-visual hidden md:block">
+          <div class="bg-gradient-to-br from-orange-500/10 to-pink-500/10 rounded-3xl p-8 border border-orange-200 dark:border-orange-700 backdrop-blur-sm">
+            <Image src={aiImage} alt="AI事業イメージ" width={600} height={600} class="w-full h-auto rounded-2xl shadow-lg mb-6 business-image" />
+            <div class="space-y-4">
+              <div class="flex items-center space-x-2">
+                <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+                <span class="text-sm text-gray-600 dark:text-gray-400">機械学習モデル学習中</span>
+              </div>
+              <div class="flex items-center space-x-2">
+                <div class="w-3 h-3 bg-blue-500 rounded-full"></div>
+                <span class="text-sm text-gray-600 dark:text-gray-400">データ分析実行中</span>
+              </div>
+              <div class="flex items-center space-x-2">
+                <div class="w-3 h-3 bg-purple-500 rounded-full"></div>
+                <span class="text-sm text-gray-600 dark:text-gray-400">AI予測生成中</span>
+              </div>
+            </div>
+          </div>
+          
+          <!-- 浮遊する要素 -->
+          <div class="absolute -top-4 -left-4 w-16 h-16 bg-gradient-to-br from-orange-400 to-red-500 rounded-full opacity-20 animate-pulse floating-element"></div>
+          <div class="absolute -bottom-4 -right-4 w-12 h-12 bg-gradient-to-br from-pink-400 to-purple-500 rounded-full opacity-20 animate-pulse delay-1000 floating-element"></div>
+        </div>
+
+        <!-- テキストコンテンツ -->
+        <div class="space-y-8 order-1 lg:order-2 business-content">
+          <div class="inline-flex items-center px-4 py-2 bg-gradient-to-r from-orange-500 to-pink-600 text-white rounded-full text-sm font-medium mb-4 business-badge">
+            🤖 AI事業
+          </div>
+          <h2 class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white leading-tight business-title">
+            <span class="hidden sm:inline">AIで<br>
+            <span class="bg-gradient-to-r from-orange-600 to-pink-600 bg-clip-text text-transparent">
+              ビジネスを革新
+            </span></span>
+            <span class="sm:hidden">AIで<br>
+            <span class="bg-gradient-to-r from-orange-600 to-pink-600 bg-clip-text text-transparent">
+              ビジネスを<br>革新
+            </span></span>
+          </h2>
+          <p class="text-xl text-gray-600 dark:text-gray-300 leading-relaxed business-description">
+            機械学習、生成AI、データ分析を活用し、ビジネス課題を解決します。
+            予測分析から自然言語処理まで、幅広いAIソリューションを提供します。
+          </p>
+          
+          <!-- 技術スタック -->
+          <div class="space-y-4 business-tech">
+            <h3 class="text-lg font-semibold text-gray-900 dark:text-white">主要技術</h3>
+            <div class="flex flex-wrap gap-3">
+              <span class="px-3 py-1 bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-300 rounded-full text-sm tech-tag">TensorFlow</span>
+              <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-full text-sm tech-tag">PyTorch</span>
+              <span class="px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 rounded-full text-sm tech-tag">scikit-learn</span>
+              <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 rounded-full text-sm tech-tag">OpenAI API</span>
+              <span class="px-3 py-1 bg-pink-100 dark:bg-pink-900/30 text-pink-700 dark:text-pink-300 rounded-full text-sm tech-tag">LangChain</span>
+              <span class="px-3 py-1 bg-indigo-100 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300 rounded-full text-sm tech-tag">Pandas</span>
+            </div>
+          </div>
+
+          <!-- サービス一覧 -->
+          <div class="grid grid-cols-2 gap-4 business-services">
+            <div class="flex items-start space-x-3 service-item">
+              <div class="w-6 h-6 bg-orange-500 rounded-full flex items-center justify-center text-white text-sm mt-0.5">✓</div>
+              <div>
+                <h4 class="font-semibold text-gray-900 dark:text-white">機械学習開発</h4>
+                <p class="text-sm text-gray-600 dark:text-gray-400">予測モデル・分類モデル開発</p>
+              </div>
+            </div>
+            <div class="flex items-start space-x-3 service-item">
+              <div class="w-6 h-6 bg-orange-500 rounded-full flex items-center justify-center text-white text-sm mt-0.5">✓</div>
+              <div>
+                <h4 class="font-semibold text-gray-900 dark:text-white">生成AI</h4>
+                <p class="text-sm text-gray-600 dark:text-gray-400">自然言語処理・画像生成</p>
+              </div>
+            </div>
+            <div class="flex items-start space-x-3 service-item">
+              <div class="w-6 h-6 bg-orange-500 rounded-full flex items-center justify-center text-white text-sm mt-0.5">✓</div>
+              <div>
+                <h4 class="font-semibold text-gray-900 dark:text-white">データ分析</h4>
+                <p class="text-sm text-gray-600 dark:text-gray-400">ビジネスインサイト抽出</p>
+              </div>
+            </div>
+            <div class="flex items-start space-x-3 service-item">
+              <div class="w-6 h-6 bg-orange-500 rounded-full flex items-center justify-center text-white text-sm mt-0.5">✓</div>
+              <div>
+                <h4 class="font-semibold text-gray-900 dark:text-white">AIコンサルティング</h4>
+                <p class="text-sm text-gray-600 dark:text-gray-400">導入戦略・実装支援</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- CTA -->
+          <div class="pt-4">
+            <a href="/contact" class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-orange-600 to-pink-600 text-white font-semibold rounded-lg hover:from-orange-700 hover:to-pink-700 transition-all transform hover:scale-105 magnet-button business-cta">
+              お問い合わせ
+              <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SVG Divider -->
+  <div class="w-full overflow-hidden leading-none">
+    <svg viewBox="0 0 1440 100" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-12 md:h-24">
+      <path fill="#f3f4f6" d="M0,100 C480,0 960,100 1440,0 L1440,100 L0,100 Z"></path>
+    </svg>
+  </div>
+
+  <!-- クラウド/インフラ事業 Section -->
+  <section class="py-24 bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-900 relative overflow-hidden">
+    <!-- アニメーション背景 -->
+    <div class="absolute inset-0">
+      <div class="absolute top-0 left-0 w-96 h-96 bg-gradient-to-br from-green-400/20 to-blue-600/20 rounded-full blur-3xl animate-float"></div>
+      <div class="absolute bottom-0 right-0 w-96 h-96 bg-gradient-to-br from-blue-400/20 to-green-600/20 rounded-full blur-3xl animate-float" style="animation-delay: -3s;"></div>
+      <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-gradient-to-br from-green-400/10 to-cyan-400/10 rounded-full blur-2xl animate-float" style="animation-delay: -1.5s;"></div>
+      
+      <!-- 3D Floating Elements -->
+      <div class="floating-element absolute top-20 right-20 w-20 h-20 bg-gradient-to-br from-green-400 to-blue-400 rounded-2xl opacity-20 rotate-12"></div>
+      <div class="floating-element absolute bottom-32 left-32 w-16 h-16 bg-gradient-to-br from-blue-400 to-green-400 rounded-full opacity-20 -rotate-12"></div>
+      <div class="floating-element absolute top-1/3 left-1/4 w-12 h-12 bg-gradient-to-br from-cyan-400 to-green-400 rounded-lg opacity-20 rotate-45"></div>
+    </div>
+    
+    <div class="relative container mx-auto px-6">
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+        <!-- テキストコンテンツ -->
+        <div class="space-y-8 business-content">
+          <div class="inline-flex items-center px-4 py-2 bg-gradient-to-r from-green-500 to-blue-600 text-white rounded-full text-sm font-medium mb-4 business-badge">
+            ☁️ クラウド/インフラ事業
+          </div>
+          <h2 class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white leading-tight business-title">
+            <span class="hidden sm:inline">クラウドで<br>
+            <span class="bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent">
+              インフラを革新
+            </span></span>
+            <span class="sm:hidden">クラウドで<br>
+            <span class="bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent">
+              インフラを<br>革新
+            </span></span>
+          </h2>
+          <p class="text-xl text-gray-600 dark:text-gray-300 leading-relaxed business-description">
+            クラウドインフラ、DevOps、セキュリティを統合し、安全で拡張性の高いIT基盤を構築します。
+            レガシーシステムのクラウド移行から最新のDevOps導入まで支援します。
+          </p>
+          
+          <!-- 技術スタック -->
+          <div class="space-y-4 business-tech">
+            <h3 class="text-lg font-semibold text-gray-900 dark:text-white">主要技術</h3>
+            <div class="flex flex-wrap gap-3">
+              <span class="px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 rounded-full text-sm tech-tag">AWS</span>
+              <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-full text-sm tech-tag">Docker</span>
+              <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 rounded-full text-sm tech-tag">Kubernetes</span>
+              <span class="px-3 py-1 bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-300 rounded-full text-sm tech-tag">Terraform</span>
+              <span class="px-3 py-1 bg-pink-100 dark:bg-pink-900/30 text-pink-700 dark:text-pink-300 rounded-full text-sm tech-tag">Jenkins</span>
+              <span class="px-3 py-1 bg-indigo-100 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300 rounded-full text-sm tech-tag">Ansible</span>
+            </div>
+          </div>
+
+          <!-- サービス一覧 -->
+          <div class="grid grid-cols-2 gap-4 business-services">
+            <div class="flex items-start space-x-3">
+              <div class="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center text-white text-sm mt-0.5">✓</div>
+              <div>
+                <h4 class="font-semibold text-gray-900 dark:text-white">クラウド設計・構築</h4>
+                <p class="text-sm text-gray-600 dark:text-gray-400">AWS・Azure・GCPインフラ構築</p>
+              </div>
+            </div>
+            <div class="flex items-start space-x-3">
+              <div class="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center text-white text-sm mt-0.5">✓</div>
+              <div>
+                <h4 class="font-semibold text-gray-900 dark:text-white">DevOps導入</h4>
+                <p class="text-sm text-gray-600 dark:text-gray-400">CI/CD・自動化パイプライン</p>
+              </div>
+            </div>
+            <div class="flex items-start space-x-3">
+              <div class="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center text-white text-sm mt-0.5">✓</div>
+              <div>
+                <h4 class="font-semibold text-gray-900 dark:text-white">システム運用</h4>
+                <p class="text-sm text-gray-600 dark:text-gray-400">監視・ログ管理・障害対応</p>
+              </div>
+            </div>
+            <div class="flex items-start space-x-3">
+              <div class="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center text-white text-sm mt-0.5">✓</div>
+              <div>
+                <h4 class="font-semibold text-gray-900 dark:text-white">セキュリティ対策</h4>
+                <p class="text-sm text-gray-600 dark:text-gray-400">脆弱性診断・セキュリティ監査</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- CTA -->
+          <div class="pt-4">
+            <a href="/contact" class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-green-600 to-blue-600 text-white font-semibold rounded-lg hover:from-green-700 hover:to-blue-700 transition-all transform hover:scale-105 magnet-button business-cta">
+              お問い合わせ
+              <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- 画像・ビジュアル -->
+        <div class="relative business-visual hidden md:block">
+          <div class="bg-gradient-to-br from-green-500/10 to-blue-500/10 rounded-3xl p-8 border border-green-200 dark:border-green-700 backdrop-blur-sm">
+            <Image src={cloudImage} alt="クラウド事業イメージ" width={600} height={600} class="w-full h-auto rounded-2xl shadow-lg mb-6 business-image" />
+            <div class="space-y-4">
+              <div class="flex items-center space-x-2">
+                <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+                <span class="text-sm text-gray-600 dark:text-gray-400">クラウドインフラ稼働中</span>
+              </div>
+              <div class="flex items-center space-x-2">
+                <div class="w-3 h-3 bg-blue-500 rounded-full"></div>
+                <span class="text-sm text-gray-600 dark:text-gray-400">CI/CDパイプライン実行中</span>
+              </div>
+              <div class="flex items-center space-x-2">
+                <div class="w-3 h-3 bg-purple-500 rounded-full"></div>
+                <span class="text-sm text-gray-600 dark:text-gray-400">セキュリティ監視中</span>
+              </div>
+            </div>
+          </div>
+          
+          <!-- 浮遊する要素 -->
+          <div class="absolute -top-4 -right-4 w-16 h-16 bg-gradient-to-br from-green-400 to-blue-500 rounded-full opacity-20 animate-pulse floating-element"></div>
+          <div class="absolute -bottom-4 -left-4 w-12 h-12 bg-gradient-to-br from-blue-400 to-cyan-500 rounded-full opacity-20 animate-pulse delay-1000 floating-element"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SVG Divider -->
+  <div class="w-full overflow-hidden leading-none">
+    <svg viewBox="0 0 1440 100" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-12 md:h-24">
+      <path fill="#f3f4f6" d="M0,100 C480,0 960,100 1440,0 L1440,100 L0,100 Z"></path>
+    </svg>
+  </div>
+
   <!-- Features Section -->
-  <section class="py-20 bg-white dark:bg-gray-900">
+  <section class="py-24 bg-white dark:bg-gray-900 relative">
     <div class="container mx-auto px-6">
-      <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-900 dark:text-white">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl md:text-5xl font-bold mb-6 text-gray-900 dark:text-white">
         私たちの強み
       </h2>
-      <div class="grid md:grid-cols-3 gap-8">
-        <div class="text-center group">
-          <div class="w-20 h-20 mx-auto mb-4 rounded-full bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center text-white text-2xl group-hover:scale-110 transition-transform">
+        <p class="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+          技術力と創造性を組み合わせ、最高品質のソリューションを提供します
+        </p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-12">
+        <div class="feature-card text-center group">
+          <div class="w-24 h-24 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center text-white text-3xl group-hover:scale-110 transition-transform duration-300 shadow-lg feature-icon">
             🚀
           </div>
-          <h3 class="text-xl font-semibold mb-2 text-gray-900 dark:text-white">最新技術</h3>
-          <p class="text-gray-600 dark:text-gray-300">常に最新の技術スタックを採用し、革新的なソリューションを提供</p>
+          <h3 class="text-2xl font-semibold mb-4 text-gray-900 dark:text-white">最新技術</h3>
+          <p class="text-gray-600 dark:text-gray-300 leading-relaxed">常に最新の技術スタックを採用し、革新的なソリューションを提供します。トレンドを先取りし、未来を見据えた開発を行います。</p>
         </div>
-        <div class="text-center group">
-          <div class="w-20 h-20 mx-auto mb-4 rounded-full bg-gradient-to-br from-green-400 to-green-600 flex items-center justify-center text-white text-2xl group-hover:scale-110 transition-transform">
+        <div class="feature-card text-center group">
+          <div class="w-24 h-24 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-green-400 to-green-600 flex items-center justify-center text-white text-3xl group-hover:scale-110 transition-transform duration-300 shadow-lg feature-icon">
             🎯
           </div>
-          <h3 class="text-xl font-semibold mb-2 text-gray-900 dark:text-white">品質重視</h3>
-          <p class="text-gray-600 dark:text-gray-300">テスト駆動開発とCI/CDで高品質なコードを維持</p>
+          <h3 class="text-2xl font-semibold mb-4 text-gray-900 dark:text-white">品質重視</h3>
+          <p class="text-gray-600 dark:text-gray-300 leading-relaxed">テスト駆動開発とCI/CDで高品質なコードを維持。セキュリティとパフォーマンスを最優先に考えた開発プロセスを実践します。</p>
         </div>
-        <div class="text-center group">
-          <div class="w-20 h-20 mx-auto mb-4 rounded-full bg-gradient-to-br from-purple-400 to-purple-600 flex items-center justify-center text-white text-2xl group-hover:scale-110 transition-transform">
+        <div class="feature-card text-center group">
+          <div class="w-24 h-24 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-purple-400 to-purple-600 flex items-center justify-center text-white text-3xl group-hover:scale-110 transition-transform duration-300 shadow-lg feature-icon">
             💡
           </div>
-          <h3 class="text-xl font-semibold mb-2 text-gray-900 dark:text-white">革新的思考</h3>
-          <p class="text-gray-600 dark:text-gray-300">既存の枠にとらわれない創造的なアプローチ</p>
+          <h3 class="text-2xl font-semibold mb-4 text-gray-900 dark:text-white">革新的思考</h3>
+          <p class="text-gray-600 dark:text-gray-300 leading-relaxed">既存の枠にとらわれない創造的なアプローチ。ユーザー体験を最優先に、新しい価値を創造するソリューションを開発します。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Company Overview Section -->
+  <section class="py-24 bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-900 relative overflow-hidden">
+    <!-- アニメーション背景 -->
+    <div class="absolute inset-0">
+      <div class="absolute top-0 left-0 w-96 h-96 bg-gradient-to-br from-primary-400/20 to-accent-400/20 rounded-full blur-3xl animate-float"></div>
+      <div class="absolute bottom-0 right-0 w-96 h-96 bg-gradient-to-br from-accent-400/20 to-primary-400/20 rounded-full blur-3xl animate-float" style="animation-delay: -3s;"></div>
+      <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-gradient-to-br from-primary-400/10 to-purple-400/10 rounded-full blur-2xl animate-float" style="animation-delay: -1.5s;"></div>
+      
+      <!-- 3D Floating Elements -->
+      <div class="floating-element absolute top-20 right-20 w-20 h-20 bg-gradient-to-br from-primary-400 to-accent-400 rounded-2xl opacity-20 rotate-12"></div>
+      <div class="floating-element absolute bottom-32 left-32 w-16 h-16 bg-gradient-to-br from-accent-400 to-primary-400 rounded-full opacity-20 -rotate-12"></div>
+      <div class="floating-element absolute top-1/3 left-1/4 w-12 h-12 bg-gradient-to-br from-purple-400 to-primary-400 rounded-lg opacity-20 rotate-45"></div>
+    </div>
+    
+    <div class="relative container mx-auto px-6">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl md:text-5xl font-bold mb-6 text-gray-900 dark:text-white">
+          会社概要
+        </h2>
+        <p class="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+          Ludo Technologiesは、次世代テクノロジーで社会に価値を創造する企業です
+        </p>
+      </div>
+      
+      <!-- 企業理念セクション -->
+      <div class="mb-16">
+        <div class="relative bg-gradient-to-br from-white/80 to-white/60 dark:from-gray-800/80 dark:to-gray-800/60 backdrop-blur-xl rounded-3xl p-8 md:p-12 border border-white/20 dark:border-gray-700/20 shadow-2xl overflow-hidden">
+          <!-- 背景パターン -->
+          <div class="absolute inset-0 bg-grid-pattern opacity-5"></div>
+          
+          <!-- 浮遊する要素 -->
+          <div class="absolute -top-4 -right-4 w-16 h-16 bg-gradient-to-br from-primary-400 to-accent-400 rounded-full opacity-20 animate-pulse floating-element"></div>
+          <div class="absolute -bottom-4 -left-4 w-12 h-12 bg-gradient-to-br from-accent-400 to-purple-400 rounded-full opacity-20 animate-pulse delay-1000 floating-element"></div>
+          
+          <div class="relative">
+            <div class="text-center mb-8">
+              <div class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-primary-500 to-accent-500 text-white rounded-full text-lg font-semibold mb-6 company-badge">
+                🏢 企業理念
+              </div>
+              <h3 class="text-4xl md:text-5xl font-bold mb-6 text-gray-900 dark:text-white leading-tight company-title">
+                <span class="hidden sm:inline">
+                  <span class="bg-gradient-to-r from-primary-600 to-accent-600 bg-clip-text text-transparent">
+                    テクノロジーで未来を創造
+                  </span>
+                </span>
+                <span class="sm:hidden">
+                  <span class="bg-gradient-to-r from-primary-600 to-accent-600 bg-clip-text text-transparent">
+                    テクノロジーで<br>未来を創造
+                  </span>
+                </span>
+              </h3>
+            </div>
+            
+            <div class="max-w-4xl mx-auto">
+              <div class="space-y-6 company-content">
+                <p class="text-xl text-gray-600 dark:text-gray-300 leading-relaxed company-description text-center">
+                  私たちは、テクノロジーの力で人々の生活をより豊かにし、社会の課題を解決することを使命としています。
+                  最新技術を駆使し、お客様のビジネスに真の価値を提供します。
+                </p>
+                
+                <div class="grid md:grid-cols-3 gap-6 company-values">
+                  <div class="text-center value-item">
+                    <div class="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-primary-500 to-accent-500 rounded-2xl flex items-center justify-center text-white text-xl font-bold value-icon">1</div>
+                    <h4 class="font-semibold text-gray-900 dark:text-white mb-2">革新的なソリューションの提供</h4>
+                    <p class="text-gray-600 dark:text-gray-400 text-sm">最新技術を活用した画期的なソリューションで、お客様のビジネスを革新します。</p>
+                  </div>
+                  <div class="text-center value-item">
+                    <div class="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-accent-500 to-purple-500 rounded-2xl flex items-center justify-center text-white text-xl font-bold value-icon">2</div>
+                    <h4 class="font-semibold text-gray-900 dark:text-white mb-2">持続可能な技術開発</h4>
+                    <p class="text-gray-600 dark:text-gray-400 text-sm">環境に配慮し、長期的に価値を提供できる技術開発を推進します。</p>
+                  </div>
+                  <div class="text-center value-item">
+                    <div class="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-purple-500 to-primary-500 rounded-2xl flex items-center justify-center text-white text-xl font-bold value-icon">3</div>
+                    <h4 class="font-semibold text-gray-900 dark:text-white mb-2">お客様との長期的なパートナーシップ</h4>
+                    <p class="text-gray-600 dark:text-gray-400 text-sm">信頼関係を築き、お客様の成長と共に歩むパートナーシップを重視します。</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- 企業情報セクション（削除） -->
+      <!--
+      <div class="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg max-w-2xl mx-auto mb-16">
+        <h4 class="text-2xl font-bold mb-6 text-gray-900 dark:text-white text-center">企業情報</h4>
+        <div class="space-y-4">
+          <div class="flex justify-between items-center py-3 border-b border-gray-200 dark:border-gray-700">
+            <span class="text-gray-600 dark:text-gray-400 font-medium">社名</span>
+            <span class="font-semibold text-gray-900 dark:text-white">Ludo Technologies</span>
+          </div>
+          <div class="flex justify-between items-center py-3 border-b border-gray-200 dark:border-gray-700">
+            <span class="text-gray-600 dark:text-gray-400 font-medium">設立</span>
+            <span class="font-semibold text-gray-900 dark:text-white">2024年</span>
+          </div>
+          <div class="flex justify-between items-center py-3 border-b border-gray-200 dark:border-gray-700">
+            <span class="text-gray-600 dark:text-gray-400 font-medium">事業内容</span>
+            <span class="font-semibold text-gray-900 dark:text-white">システム開発・技術コンサルティング</span>
+          </div>
+          <div class="flex justify-between items-center py-3">
+            <span class="text-gray-600 dark:text-gray-400 font-medium">所在地</span>
+            <span class="font-semibold text-gray-900 dark:text-white">東京都</span>
+          </div>
+        </div>
+      </div>
+      -->
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section class="py-24 bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-900 relative overflow-hidden">
+    <!-- アニメーション背景 -->
+    <div class="absolute inset-0">
+      <div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-blue-400/20 to-green-600/20 rounded-full blur-3xl animate-float"></div>
+      <div class="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-br from-green-400/20 to-blue-600/20 rounded-full blur-3xl animate-float" style="animation-delay: -3s;"></div>
+      <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-gradient-to-br from-blue-400/10 to-purple-400/10 rounded-full blur-2xl animate-float" style="animation-delay: -1.5s;"></div>
+      
+      <!-- 3D Floating Elements -->
+      <div class="floating-element absolute top-20 left-20 w-20 h-20 bg-gradient-to-br from-blue-400 to-green-400 rounded-2xl opacity-20 -rotate-12"></div>
+      <div class="floating-element absolute bottom-32 right-32 w-16 h-16 bg-gradient-to-br from-green-400 to-blue-400 rounded-full opacity-20 rotate-12"></div>
+      <div class="floating-element absolute top-1/3 right-1/4 w-12 h-12 bg-gradient-to-br from-purple-400 to-blue-400 rounded-lg opacity-20 -rotate-45"></div>
+    </div>
+    
+    <div class="relative container mx-auto px-6">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl md:text-5xl font-bold mb-6 text-gray-900 dark:text-white">
+          サービス
+        </h2>
+        <p class="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+          お客様のビジネスニーズに合わせた包括的なソリューションを提供します
+        </p>
+      </div>
+      
+      <div class="relative bg-gradient-to-br from-white/80 to-white/60 dark:from-gray-800/80 dark:to-gray-800/60 backdrop-blur-xl rounded-3xl p-8 md:p-12 border border-white/20 dark:border-gray-700/20 shadow-2xl overflow-hidden">
+        <!-- 背景パターン -->
+        <div class="absolute inset-0 bg-grid-pattern opacity-5"></div>
+        
+        <!-- 浮遊する要素 -->
+        <div class="absolute -top-4 -right-4 w-16 h-16 bg-gradient-to-br from-blue-400 to-green-400 rounded-full opacity-20 animate-pulse floating-element"></div>
+        <div class="absolute -bottom-4 -left-4 w-12 h-12 bg-gradient-to-br from-green-400 to-purple-400 rounded-full opacity-20 animate-pulse delay-1000 floating-element"></div>
+        
+        <div class="relative">
+          <div class="grid md:grid-cols-3 gap-8">
+            <div class="text-center service-item">
+              <div class="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center text-white text-3xl service-icon">
+                💻
+              </div>
+              <h3 class="text-2xl font-bold mb-4 text-gray-900 dark:text-white">システム開発</h3>
+              <p class="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
+                最新技術を駆使したWebアプリケーション、モバイルアプリ、AIシステムの開発を行います。
+              </p>
+              <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-400 text-left">
+                <li>• Webアプリケーション開発</li>
+                <li>• モバイルアプリ開発</li>
+                <li>• AI・機械学習システム</li>
+                <li>• ブロックチェーンソリューション</li>
+              </ul>
+            </div>
+            
+            <div class="text-center service-item">
+              <div class="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-green-500 to-green-600 rounded-2xl flex items-center justify-center text-white text-3xl service-icon">
+                🎯
+              </div>
+              <h3 class="text-2xl font-bold mb-4 text-gray-900 dark:text-white">技術コンサルティング</h3>
+              <p class="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
+                技術戦略の立案から実装まで、お客様のビジネス目標達成をサポートします。
+              </p>
+              <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-400 text-left">
+                <li>• 技術戦略立案</li>
+                <li>• アーキテクチャ設計</li>
+                <li>• 技術選定支援</li>
+                <li>• 開発プロセス改善</li>
+              </ul>
+            </div>
+            
+            <div class="text-center service-item">
+              <div class="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center text-white text-3xl service-icon">
+                🔧
+              </div>
+              <h3 class="text-2xl font-bold mb-4 text-gray-900 dark:text-white">保守・運用</h3>
+              <p class="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
+                システムの安定稼働と継続的な改善をサポートし、長期的な価値を提供します。
+              </p>
+              <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-400 text-left">
+                <li>• システム保守</li>
+                <li>• パフォーマンス最適化</li>
+                <li>• セキュリティ対策</li>
+                <li>• 機能拡張・改善</li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 </Layout>
+
+<style>
+  .bg-grid-pattern {
+    background-image: 
+      linear-gradient(rgba(0,0,0,0.1) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0,0,0,0.1) 1px, transparent 1px);
+    background-size: 50px 50px;
+  }
+  
+  .animate-fade-in-up {
+    animation: fadeInUp 1s ease-out forwards;
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  
+  .animate-text-reveal {
+    animation: textReveal 1.2s ease-out forwards;
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  
+  @keyframes fadeInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes textReveal {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .project-card {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  
+  .feature-card {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  
+  .floating-element {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  .floating-element:nth-child(2) {
+    animation-delay: -2s;
+  }
+  
+  .floating-element:nth-child(3) {
+    animation-delay: -4s;
+  }
+  
+  .magnet-button {
+    transition: all 0.3s ease;
+  }
+  
+  .stat-item {
+    transition: all 0.3s ease;
+  }
+  
+  .stat-item:hover {
+    transform: translateY(-5px);
+  }
+  
+  .feature-icon {
+    transition: all 0.3s ease;
+  }
+  
+  .feature-icon:hover {
+    animation: bounce 0.6s ease;
+  }
+  
+  @keyframes bounce {
+    0%, 20%, 53%, 80%, 100% {
+      transform: translate3d(0,0,0);
+    }
+    40%, 43% {
+      transform: translate3d(0,-30px,0);
+    }
+    70% {
+      transform: translate3d(0,-15px,0);
+    }
+    90% {
+      transform: translate3d(0,-4px,0);
+    }
+  }
+</style>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  document.addEventListener('DOMContentLoaded', () => {
+    // マウスフォロワー
+    const mouseFollower = document.getElementById('mouse-follower');
+    let mouseX = 0, mouseY = 0;
+    let currentX = 0, currentY = 0;
+
+    document.addEventListener('mousemove', (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+    });
+
+    gsap.ticker.add(() => {
+      currentX += (mouseX - currentX) * 0.1;
+      currentY += (mouseY - currentY) * 0.1;
+      
+      gsap.set(mouseFollower, {
+        x: currentX - 24,
+        y: currentY - 24
+      });
+    });
+
+    // マウスフォロワーの表示
+    gsap.to(mouseFollower, {
+      opacity: 1,
+      duration: 1,
+      delay: 0.5
+    });
+
+    // パーティクルエフェクト
+    const particleContainer = document.getElementById('particle-container');
+    for (let i = 0; i < 30; i++) {
+      const particle = document.createElement('div');
+      particle.style.cssText = `
+        position: absolute;
+        width: 4px;
+        height: 4px;
+        background: linear-gradient(45deg, #667eea, #764ba2);
+        border-radius: 50%;
+        pointer-events: none;
+        opacity: 0;
+      `;
+      
+      particleContainer.appendChild(particle);
+
+      gsap.set(particle, {
+        x: Math.random() * window.innerWidth,
+        y: Math.random() * window.innerHeight,
+        scale: 0
+      });
+
+      gsap.to(particle, {
+        x: Math.random() * window.innerWidth,
+        y: Math.random() * window.innerHeight,
+        scale: Math.random() * 2 + 0.5,
+        opacity: Math.random() * 0.5 + 0.2,
+        duration: Math.random() * 3 + 2,
+        repeat: -1,
+        yoyo: true,
+        ease: "power1.inOut",
+        delay: Math.random() * 2
+      });
+    }
+
+    // 基本的なフェードインアニメーション
+    gsap.fromTo('#hero-title-1', 
+      { opacity: 0, y: 50 },
+      { opacity: 1, y: 0, duration: 1, delay: 0.5, ease: "power3.out" }
+    );
+    gsap.fromTo('#hero-title-2', 
+      { opacity: 0, y: 50 },
+      { opacity: 1, y: 0, duration: 1, delay: 0.8, ease: "power3.out" }
+    );
+
+    // マグネットエフェクト
+    const magnetButtons = document.querySelectorAll('.magnet-button');
+    magnetButtons.forEach(button => {
+      button.addEventListener('mousemove', (e) => {
+        const event = e as MouseEvent;
+        const rect = button.getBoundingClientRect();
+        const x = event.clientX - rect.left - rect.width / 2;
+        const y = event.clientY - rect.top - rect.height / 2;
+
+        gsap.to(button, {
+          x: x * 0.3,
+          y: y * 0.3,
+          duration: 0.3,
+          ease: "power2.out"
+        });
+      });
+
+      button.addEventListener('mouseleave', () => {
+        gsap.to(button, {
+          x: 0,
+          y: 0,
+          duration: 0.3,
+          ease: "power2.out"
+        });
+      });
+    });
+
+    // カウンターアニメーション
+    const counters = document.querySelectorAll('.counter');
+    counters.forEach(counter => {
+      const target = parseInt(counter.getAttribute('data-target') || '0');
+      gsap.to(counter, {
+        innerHTML: target,
+        duration: 2,
+        snap: { innerHTML: 1 },
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: counter,
+          start: "top 80%",
+          toggleActions: "play none none reverse"
+        }
+      });
+    });
+
+    // プロジェクトカードのアニメーション
+    const projectCards = document.querySelectorAll('.project-card');
+    projectCards.forEach((card, index) => {
+      gsap.fromTo(card,
+        {
+          y: 100,
+          opacity: 0,
+          scale: 0.8,
+          rotationY: 45
+        },
+        {
+          y: 0,
+          opacity: 1,
+          scale: 1,
+          rotationY: 0,
+          duration: 1,
+          delay: index * 0.2,
+          ease: "back.out(1.7)",
+          scrollTrigger: {
+            trigger: card,
+            start: "top 80%",
+            end: "bottom 20%",
+            toggleActions: "play none none reverse"
+          }
+        }
+      );
+    });
+
+    // フィーチャーカードのアニメーション
+    const featureCards = document.querySelectorAll('.feature-card');
+    featureCards.forEach((card, index) => {
+      gsap.fromTo(card,
+        {
+          y: 100,
+          opacity: 0,
+          scale: 0.8
+        },
+        {
+          y: 0,
+          opacity: 1,
+          scale: 1,
+          duration: 1,
+          delay: index * 0.2,
+          ease: "back.out(1.7)",
+          scrollTrigger: {
+            trigger: card,
+            start: "top 80%",
+            end: "bottom 20%",
+            toggleActions: "play none none reverse"
+          }
+        }
+      );
+    });
+
+    // フィーチャーアイコンのホバーアニメーション
+    const featureIcons = document.querySelectorAll('.feature-icon');
+    featureIcons.forEach(icon => {
+      icon.addEventListener('mouseenter', () => {
+        gsap.to(icon, {
+          rotation: 360,
+          scale: 1.2,
+          duration: 0.6,
+          ease: "back.out(1.7)"
+        });
+      });
+
+      icon.addEventListener('mouseleave', () => {
+        gsap.to(icon, {
+          rotation: 0,
+          scale: 1,
+          duration: 0.6,
+          ease: "back.out(1.7)"
+        });
+      });
+    });
+
+    // 統計アイテムのホバーアニメーション
+    const statItems = document.querySelectorAll('.stat-item');
+    statItems.forEach(item => {
+      item.addEventListener('mouseenter', () => {
+        gsap.to(item, {
+          scale: 1.05,
+          duration: 0.3,
+          ease: "power2.out"
+        });
+      });
+
+      item.addEventListener('mouseleave', () => {
+        gsap.to(item, {
+          scale: 1,
+          duration: 0.3,
+          ease: "power2.out"
+        });
+      });
+    });
+
+    // スクロールベースの3Dパララックス
+    const floatingElements = document.querySelectorAll('.floating-element');
+    floatingElements.forEach((element, index) => {
+      gsap.to(element, {
+        rotationY: 360,
+        rotationX: 180,
+        z: -1000 * (0.5 + index * 0.1),
+        ease: "none",
+        scrollTrigger: {
+          trigger: element,
+          start: "top bottom",
+          end: "bottom top",
+          scrub: 1
+        }
+      });
+    });
+
+    // 波紋エフェクト
+    const buttons = document.querySelectorAll('a[href], button');
+    buttons.forEach(button => {
+      button.addEventListener('click', (e) => {
+        const event = e as MouseEvent;
+        const rect = button.getBoundingClientRect();
+        const x = event.clientX - rect.left;
+        const y = event.clientY - rect.top;
+
+        const ripple = document.createElement('span');
+        ripple.style.position = 'absolute';
+        ripple.style.left = x + 'px';
+        ripple.style.top = y + 'px';
+        ripple.style.width = '0px';
+        ripple.style.height = '0px';
+        ripple.style.borderRadius = '50%';
+        ripple.style.background = 'rgba(255, 255, 255, 0.6)';
+        ripple.style.transform = 'translate(-50%, -50%)';
+        ripple.style.pointerEvents = 'none';
+
+        (button as HTMLElement).style.position = 'relative';
+        button.appendChild(ripple);
+
+        gsap.to(ripple, {
+          width: '300px',
+          height: '300px',
+          opacity: 0,
+          duration: 0.8,
+          ease: "power2.out",
+          onComplete: () => {
+            button.removeChild(ripple);
+          }
+        });
+      });
+    });
+
+    // 事業セクション専用アニメーション
+    const businessSections = document.querySelectorAll('section');
+    businessSections.forEach((section, sectionIndex) => {
+      // 事業セクションかどうかを判定
+      if (section.querySelector('.business-content')) {
+        
+        // コンテンツ要素のアニメーション
+        const businessContent = section.querySelector('.business-content');
+        const businessVisual = section.querySelector('.business-visual');
+        
+        if (businessContent) {
+          gsap.fromTo(businessContent,
+            {
+              x: -100,
+              opacity: 0,
+              scale: 0.9
+            },
+            {
+              x: 0,
+              opacity: 1,
+              scale: 1,
+              duration: 1.2,
+              delay: 0.2,
+              ease: "back.out(1.7)",
+              scrollTrigger: {
+                trigger: section,
+                start: "top 80%",
+                end: "bottom 20%",
+                toggleActions: "play none none reverse"
+              }
+            }
+          );
+        }
+
+        if (businessVisual) {
+          gsap.fromTo(businessVisual,
+            {
+              x: 100,
+              opacity: 0,
+              scale: 0.9,
+              rotationY: 15
+            },
+            {
+              x: 0,
+              opacity: 1,
+              scale: 1,
+              rotationY: 0,
+              duration: 1.2,
+              delay: 0.4,
+              ease: "back.out(1.7)",
+              scrollTrigger: {
+                trigger: section,
+                start: "top 80%",
+                end: "bottom 20%",
+                toggleActions: "play none none reverse"
+              }
+            }
+          );
+        }
+
+        // 個別要素のアニメーション
+        const businessBadge = section.querySelector('.business-badge');
+        const businessTitle = section.querySelector('.business-title');
+        const businessDescription = section.querySelector('.business-description');
+        const businessTech = section.querySelector('.business-tech');
+        const businessServices = section.querySelector('.business-services');
+        const businessCta = section.querySelector('.business-cta');
+        const businessImage = section.querySelector('.business-image');
+
+        // バッジアニメーション
+        if (businessBadge) {
+          gsap.fromTo(businessBadge,
+            {
+              y: -50,
+              opacity: 0,
+              scale: 0.5
+            },
+            {
+              y: 0,
+              opacity: 1,
+              scale: 1,
+              duration: 0.8,
+              delay: 0.3,
+              ease: "back.out(1.7)",
+              scrollTrigger: {
+                trigger: section,
+                start: "top 80%",
+                toggleActions: "play none none reverse"
+              }
+            }
+          );
+        }
+
+        // タイトルアニメーション
+        if (businessTitle) {
+          gsap.fromTo(businessTitle,
+            {
+              y: 50,
+              opacity: 0
+            },
+            {
+              y: 0,
+              opacity: 1,
+              duration: 1,
+              delay: 0.4,
+              ease: "power3.out",
+              scrollTrigger: {
+                trigger: section,
+                start: "top 80%",
+                toggleActions: "play none none reverse"
+              }
+            }
+          );
+        }
+
+        // 説明文アニメーション
+        if (businessDescription) {
+          gsap.fromTo(businessDescription,
+            {
+              y: 30,
+              opacity: 0
+            },
+            {
+              y: 0,
+              opacity: 1,
+              duration: 0.8,
+              delay: 0.6,
+              ease: "power3.out",
+              scrollTrigger: {
+                trigger: section,
+                start: "top 80%",
+                toggleActions: "play none none reverse"
+              }
+            }
+          );
+        }
+
+        // 技術タグアニメーション
+        const techTags = section.querySelectorAll('.tech-tag');
+        techTags.forEach((tag, index) => {
+          gsap.fromTo(tag,
+            {
+              y: 20,
+              opacity: 0,
+              scale: 0.8
+            },
+            {
+              y: 0,
+              opacity: 1,
+              scale: 1,
+              duration: 0.6,
+              delay: 0.8 + index * 0.1,
+              ease: "back.out(1.7)",
+              scrollTrigger: {
+                trigger: section,
+                start: "top 80%",
+                toggleActions: "play none none reverse"
+              }
+            }
+          );
+        });
+
+        // サービスアイテムアニメーション
+        const serviceItems = section.querySelectorAll('.service-item');
+        serviceItems.forEach((item, index) => {
+          gsap.fromTo(item,
+            {
+              x: -30,
+              opacity: 0
+            },
+            {
+              x: 0,
+              opacity: 1,
+              duration: 0.6,
+              delay: 1.0 + index * 0.1,
+              ease: "power3.out",
+              scrollTrigger: {
+                trigger: section,
+                start: "top 80%",
+                toggleActions: "play none none reverse"
+              }
+            }
+          );
+        });
+
+        // CTAアニメーション
+        if (businessCta) {
+          gsap.fromTo(businessCta,
+            {
+              y: 30,
+              opacity: 0,
+              scale: 0.9
+            },
+            {
+              y: 0,
+              opacity: 1,
+              scale: 1,
+              duration: 0.8,
+              delay: 1.2,
+              ease: "back.out(1.7)",
+              scrollTrigger: {
+                trigger: section,
+                start: "top 80%",
+                toggleActions: "play none none reverse"
+              }
+            }
+          );
+        }
+
+        // 画像アニメーション
+        if (businessImage) {
+          gsap.fromTo(businessImage,
+            {
+              scale: 0.8,
+              opacity: 0,
+              rotationY: 20
+            },
+            {
+              scale: 1,
+              opacity: 1,
+              rotationY: 0,
+              duration: 1,
+              delay: 0.5,
+              ease: "back.out(1.7)",
+              scrollTrigger: {
+                trigger: section,
+                start: "top 80%",
+                toggleActions: "play none none reverse"
+              }
+            }
+          );
+        }
+
+        // ホバーエフェクト
+        const businessImages = section.querySelectorAll('.business-image');
+        businessImages.forEach(image => {
+          image.addEventListener('mouseenter', () => {
+            gsap.to(image, {
+              scale: 1.05,
+              rotationY: 5,
+              duration: 0.3,
+              ease: "power2.out"
+            });
+          });
+
+          image.addEventListener('mouseleave', () => {
+            gsap.to(image, {
+              scale: 1,
+              rotationY: 0,
+              duration: 0.3,
+              ease: "power2.out"
+            });
+          });
+        });
+
+        // 技術タグホバーエフェクト
+        techTags.forEach(tag => {
+          tag.addEventListener('mouseenter', () => {
+            gsap.to(tag, {
+              scale: 1.1,
+              y: -2,
+              duration: 0.2,
+              ease: "power2.out"
+            });
+          });
+
+          tag.addEventListener('mouseleave', () => {
+            gsap.to(tag, {
+              scale: 1,
+              y: 0,
+              duration: 0.2,
+              ease: "power2.out"
+            });
+          });
+        });
+      }
+    });
+  });
+</script>

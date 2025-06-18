@@ -1,0 +1,319 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="採用情報 - Ludo Technologies">
+  <!-- Hero Section -->
+  <section class="relative overflow-hidden bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-900 min-h-[60vh] flex items-center">
+    <!-- アニメーション背景 -->
+    <div class="absolute inset-0">
+      <div class="absolute top-0 left-0 w-96 h-96 bg-gradient-to-br from-purple-400/20 to-pink-600/20 rounded-full blur-3xl animate-float"></div>
+      <div class="absolute bottom-0 right-0 w-96 h-96 bg-gradient-to-br from-pink-400/20 to-purple-600/20 rounded-full blur-3xl animate-float" style="animation-delay: -3s;"></div>
+      <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-gradient-to-br from-purple-400/10 to-red-400/10 rounded-full blur-2xl animate-float" style="animation-delay: -1.5s;"></div>
+    </div>
+    
+    <div class="relative container mx-auto px-6 py-24">
+      <div class="text-center">
+        <div class="mb-8">
+          <div class="inline-flex items-center px-4 py-2 rounded-full bg-gradient-to-r from-purple-100 to-pink-100 dark:from-purple-900/30 dark:to-pink-900/30 border border-purple-200 dark:border-purple-700 text-purple-700 dark:text-purple-300 text-sm font-medium animate-fade-in-up">
+            🌟 採用情報
+          </div>
+        </div>
+        <h1 class="text-5xl md:text-7xl font-bold mb-8 text-primary-600 dark:text-primary-400 leading-tight">
+          <span class="block animate-text-reveal">Join Our Team</span>
+        </h1>
+        <p class="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed animate-fade-in-up" style="animation-delay: 0.3s;">
+          Ludo Technologiesでは、次世代のテクノロジーを創造する仲間を募集しています。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Join Us Section -->
+  <section class="py-24 bg-white dark:bg-gray-900 relative">
+    <div class="container mx-auto px-6">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl md:text-5xl font-bold mb-6 text-gray-900 dark:text-white">
+          なぜLudo Technologiesで働くのか？
+        </h2>
+        <p class="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+          私たちのユニークな文化と働き方をご紹介します。
+        </p>
+      </div>
+      
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg border border-gray-200 dark:border-gray-700 text-center feature-card">
+          <div class="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center text-white text-3xl">
+            💡
+          </div>
+          <h3 class="text-2xl font-bold mb-4 text-gray-900 dark:text-white">最先端技術への挑戦</h3>
+          <p class="text-gray-600 dark:text-gray-300">
+            常に最新のテクノロジーに触れ、新しい価値を創造する機会があります。
+          </p>
+        </div>
+        
+        <div class="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg border border-gray-200 dark:border-gray-700 text-center feature-card">
+          <div class="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-green-500 to-green-600 rounded-2xl flex items-center justify-center text-white text-3xl">
+            🤝
+          </div>
+          <h3 class="text-2xl font-bold mb-4 text-gray-900 dark:text-white">チームワークと成長</h3>
+          <p class="text-gray-600 dark:text-gray-300">
+            経験豊富な仲間たちと共に学び、成長できる環境がここにあります。
+          </p>
+        </div>
+        
+        <div class="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg border border-gray-200 dark:border-gray-700 text-center feature-card">
+          <div class="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center text-white text-3xl">
+            🎯
+          </div>
+          <h3 class="text-2xl font-bold mb-4 text-gray-900 dark:text-white">柔軟な働き方</h3>
+          <p class="text-gray-600 dark:text-gray-300">
+            リモートワークやフレックスタイムなど、個々のライフスタイルに合わせた働き方が可能です。
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Current Openings Section -->
+  <section class="py-24 bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-900 relative">
+    <div class="container mx-auto px-6">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl md:text-5xl font-bold mb-6 text-gray-900 dark:text-white">
+          募集職種
+        </h2>
+        <p class="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+          あなたのスキルと情熱を活かせるポジションがきっと見つかります。
+        </p>
+      </div>
+      
+      <div class="max-w-4xl mx-auto space-y-8">
+        <div class="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg border border-gray-200 dark:border-gray-700 flex flex-col md:flex-row items-center justify-between job-card">
+          <div>
+            <h3 class="text-2xl font-bold mb-2 text-gray-900 dark:text-white">フロントエンドエンジニア</h3>
+            <p class="text-gray-600 dark:text-gray-300">React, Next.js, TypeScript を用いたWebアプリケーション開発</p>
+            <div class="flex flex-wrap gap-2 mt-4">
+              <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-full text-sm">正社員</span>
+              <span class="px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 rounded-full text-sm">リモート可</span>
+              <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 rounded-full text-sm">年収500万〜800万</span>
+            </div>
+          </div>
+          <a href="/contact" class="mt-6 md:mt-0 px-6 py-3 bg-gradient-to-r from-primary-600 to-accent-600 text-white font-semibold rounded-lg hover:from-primary-700 hover:to-accent-700 transition-all transform hover:scale-105 magnet-button">
+            詳細を見る
+          </a>
+        </div>
+        
+        <div class="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg border border-gray-200 dark:border-gray-700 flex flex-col md:flex-row items-center justify-between job-card">
+          <div>
+            <h3 class="text-2xl font-bold mb-2 text-gray-900 dark:text-white">バックエンドエンジニア</h3>
+            <p class="text-gray-600 dark:text-gray-300">Node.js, Python, FastAPI を用いたAPI開発とデータベース設計</p>
+            <div class="flex flex-wrap gap-2 mt-4">
+              <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-full text-sm">正社員</span>
+              <span class="px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 rounded-full text-sm">リモート可</span>
+              <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 rounded-full text-sm">年収550万〜900万</span>
+            </div>
+          </div>
+          <a href="/contact" class="mt-6 md:mt-0 px-6 py-3 bg-gradient-to-r from-primary-600 to-accent-600 text-white font-semibold rounded-lg hover:from-primary-700 hover:to-accent-700 transition-all transform hover:scale-105 magnet-button">
+            詳細を見る
+          </a>
+        </div>
+        
+        <div class="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg border border-gray-200 dark:border-gray-700 flex flex-col md:flex-row items-center justify-between job-card">
+          <div>
+            <h3 class="text-2xl font-bold mb-2 text-gray-900 dark:text-white">AI/データサイエンティスト</h3>
+            <p class="text-gray-600 dark:text-gray-300">機械学習モデル開発、データ分析、AIソリューション構築</p>
+            <div class="flex flex-wrap gap-2 mt-4">
+              <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-full text-sm">正社員</span>
+              <span class="px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 rounded-full text-sm">リモート可</span>
+              <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 rounded-full text-sm">年収600万〜1000万</span>
+            </div>
+          </div>
+          <a href="/contact" class="mt-6 md:mt-0 px-6 py-3 bg-gradient-to-r from-primary-600 to-accent-600 text-white font-semibold rounded-lg hover:from-primary-700 hover:to-accent-700 transition-all transform hover:scale-105 magnet-button">
+            詳細を見る
+          </a>
+        </div>
+        
+        <div class="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg border border-gray-200 dark:border-gray-700 flex flex-col md:flex-row items-center justify-between job-card">
+          <div>
+            <h3 class="text-2xl font-bold mb-2 text-gray-900 dark:text-white">CFO</h3>
+            <p class="text-gray-600 dark:text-gray-300">財務戦略の立案と実行、資金調達、IRなどを担当</p>
+            <div class="flex flex-wrap gap-2 mt-4">
+              <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-full text-sm">正社員</span>
+              <span class="px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 rounded-full text-sm">リモート可</span>
+              <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 rounded-full text-sm">年収800万〜1500万</span>
+            </div>
+          </div>
+          <a href="/contact" class="mt-6 md:mt-0 px-6 py-3 bg-gradient-to-r from-primary-600 to-accent-600 text-white font-semibold rounded-lg hover:from-primary-700 hover:to-accent-700 transition-all transform hover:scale-105 magnet-button">
+            詳細を見る
+          </a>
+        </div>
+        
+        <div class="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg border border-gray-200 dark:border-gray-700 flex flex-col md:flex-row items-center justify-between job-card">
+          <div>
+            <h3 class="text-2xl font-bold mb-2 text-gray-900 dark:text-white">プロダクトマネージャー</h3>
+            <p class="text-gray-600 dark:text-gray-300">プロダクト戦略の策定、ロードマップ作成、開発チームとの連携</p>
+            <div class="flex flex-wrap gap-2 mt-4">
+              <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-full text-sm">正社員</span>
+              <span class="px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 rounded-full text-sm">リモート可</span>
+              <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 rounded-full text-sm">年収600万〜1200万</span>
+            </div>
+          </div>
+          <a href="/contact" class="mt-6 md:mt-0 px-6 py-3 bg-gradient-to-r from-primary-600 to-accent-600 text-white font-semibold rounded-lg hover:from-primary-700 hover:to-accent-700 transition-all transform hover:scale-105 magnet-button">
+            詳細を見る
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-24 bg-primary-600 dark:bg-primary-800 text-white text-center relative overflow-hidden">
+    <div class="absolute inset-0 opacity-10 bg-black dot-pattern"></div>
+    <div class="relative container mx-auto px-6">
+      <h2 class="text-4xl md:text-5xl font-bold mb-6">
+        あなたの情熱をLudo Technologiesで活かしませんか？
+      </h2>
+      <p class="text-xl md:text-2xl mb-12 max-w-3xl mx-auto">
+        挑戦を恐れず、未来を共に創造する仲間を求めています。
+      </p>
+      <a href="/contact" class="inline-flex items-center px-8 py-4 rounded-xl bg-white text-primary-600 font-semibold text-lg hover:bg-gray-100 transition-all transform hover:scale-105 hover:shadow-xl shadow-lg magnet-button">
+        今すぐ応募する
+        <svg class="w-6 h-6 ml-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+        </svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- Application Form Section -->
+  <section class="py-24 bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-900 relative">
+    <div class="container mx-auto px-6">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl md:text-5xl font-bold mb-6 text-gray-900 dark:text-white">
+          応募フォーム
+        </h2>
+        <p class="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+          下記フォームに必要事項をご記入の上、ご応募ください。
+        </p>
+      </div>
+
+      <div class="max-w-3xl mx-auto bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg border border-gray-200 dark:border-gray-700 application-form-section">
+        <form action="#" method="POST" class="space-y-6">
+          <div>
+            <label for="name" class="block text-lg font-medium text-gray-700 dark:text-gray-200 mb-2">氏名</label>
+            <input type="text" id="name" name="name" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white p-3 transition-colors duration-200" placeholder="氏名をご入力ください"/>
+          </div>
+          <div>
+            <label for="email" class="block text-lg font-medium text-gray-700 dark:text-gray-200 mb-2">メールアドレス</label>
+            <input type="email" id="email" name="email" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white p-3 transition-colors duration-200" placeholder="name@example.com"/>
+          </div>
+          <div>
+            <label for="motivation" class="block text-lg font-medium text-gray-700 dark:text-gray-200 mb-2">動機（200字以内）</label>
+            <textarea id="motivation" name="motivation" rows="5" maxlength="200" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white p-3 transition-colors duration-200" placeholder="Ludo Technologiesで働きたい動機、これまでの経験、貢献したいことなどを具体的にご記入ください。"></textarea>
+            <p class="mt-2 text-sm text-gray-500 dark:text-gray-400" id="motivation-help">残り文字数: <span id="motivation-chars-left">200</span></p>
+          </div>
+          <div>
+            <label for="cv" class="block text-lg font-medium text-gray-700 dark:text-gray-200 mb-2">CV (履歴書/職務経歴書 - PDF)</label>
+            <input type="file" id="cv" name="cv" accept=".pdf" class="block w-full text-sm text-gray-500 dark:text-gray-400 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-primary-50 file:text-primary-700 hover:file:bg-primary-100 dark:file:bg-primary-900/30 dark:file:text-primary-300 dark:hover:file:bg-primary-800/30 transition-colors duration-200"/>
+            <p class="mt-2 text-sm text-gray-500 dark:text-gray-400">PDF形式のファイルをアップロードしてください。</p>
+          </div>
+          <div>
+            <button type="submit" class="w-full inline-flex items-center justify-center px-8 py-4 rounded-xl bg-gradient-to-r from-primary-600 to-accent-600 text-white font-semibold text-lg hover:from-primary-700 hover:to-accent-700 transition-all transform hover:scale-105 hover:shadow-xl shadow-lg magnet-button">
+              応募する
+              <svg class="w-6 h-6 ml-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+              </svg>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .dot-pattern {
+    background-image: radial-gradient(#ffffff 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+
+  .feature-card,
+  .job-card {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+</style>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  document.addEventListener('DOMContentLoaded', () => {
+    // なぜLudo Technologiesで働くのか？セクションのアニメーション
+    gsap.utils.toArray('.feature-card').forEach((card, i) => {
+      gsap.fromTo(card, 
+        { opacity: 0, y: 50 },
+        { 
+          opacity: 1, 
+          y: 0, 
+          duration: 1,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: card,
+            start: "top 80%",
+            toggleActions: "play none none none",
+          }
+        }
+      );
+    });
+
+    // 募集職種セクションのアニメーション
+    gsap.utils.toArray('.job-card').forEach((card, i) => {
+      gsap.fromTo(card, 
+        { opacity: 0, x: i % 2 === 0 ? -50 : 50 }, // 左右から交互にフェードイン
+        { 
+          opacity: 1, 
+          x: 0, 
+          duration: 1.2,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: card,
+            start: "top 80%",
+            toggleActions: "play none none none",
+          }
+        }
+      );
+    });
+
+    // Application Form Section のアニメーション
+    const applicationForm = document.querySelector('.application-form-section');
+    if (applicationForm) {
+      gsap.fromTo(applicationForm,
+        { opacity: 0, y: 50 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1.2,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: applicationForm,
+            start: "top 80%",
+            toggleActions: "play none none none",
+          }
+        }
+      );
+    }
+
+    // 動機入力フォームの文字数カウンター
+    const motivationTextarea = document.getElementById('motivation');
+    const motivationCharsLeft = document.getElementById('motivation-chars-left');
+    if (motivationTextarea && motivationCharsLeft) {
+      motivationTextarea.addEventListener('input', () => {
+        const remaining = 200 - motivationTextarea.value.length;
+        motivationCharsLeft.textContent = remaining;
+      });
+    }
+  });
+</script> 

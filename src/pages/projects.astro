@@ -1,6 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import ProjectDetail from '../components/ProjectDetail.tsx';
+import ProjectCard from '../components/ProjectCard.astro';
 
 const projectDetails = [
   {
@@ -54,19 +54,151 @@ const projectDetails = [
 ];
 ---
 
-<Layout title="プロジェクト - Tech Lab">
+<Layout title="実績・プロジェクト - Ludo Technologies">
   <section class="py-20 bg-white dark:bg-gray-900">
     <div class="container mx-auto px-6">
-      <h1 class="text-4xl md:text-5xl font-bold text-center mb-4 bg-gradient-to-r from-primary-600 to-accent-600 bg-clip-text text-transparent">
-        プロジェクト
+      <h1 class="text-4xl md:text-5xl font-bold text-center mb-4 text-primary-600 dark:text-primary-400">
+        実績・プロジェクト
       </h1>
-      <p class="text-xl text-gray-600 dark:text-gray-300 text-center mb-12 max-w-2xl mx-auto">
-        最新技術を活用した革新的なソリューション
+      <p class="text-xl text-gray-600 dark:text-gray-300 text-center mb-12 max-w-3xl mx-auto">
+        Ludo Technologiesが手がけた主要プロジェクトと実績をご紹介します。
+        お客様のビジネス課題を解決し、革新的なソリューションを提供してきました。
       </p>
-      <div class="space-y-12">
-        {projectDetails.map((project, index) => (
-          <ProjectDetail client:visible {...project} index={index} />
-        ))}
+
+      <!-- Project Stats -->
+      <div class="grid md:grid-cols-4 gap-8 mb-16">
+        <div class="text-center bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900/20 dark:to-blue-800/20 rounded-2xl p-6">
+          <div class="text-3xl font-bold text-blue-600 dark:text-blue-400 mb-2">50+</div>
+          <div class="text-gray-600 dark:text-gray-300">完了プロジェクト</div>
+        </div>
+        <div class="text-center bg-gradient-to-br from-green-50 to-green-100 dark:from-green-900/20 dark:to-green-800/20 rounded-2xl p-6">
+          <div class="text-3xl font-bold text-green-600 dark:text-green-400 mb-2">30+</div>
+          <div class="text-gray-600 dark:text-gray-300">お客様企業</div>
+        </div>
+        <div class="text-center bg-gradient-to-br from-purple-50 to-purple-100 dark:from-purple-900/20 dark:to-purple-800/20 rounded-2xl p-6">
+          <div class="text-3xl font-bold text-purple-600 dark:text-purple-400 mb-2">99%</div>
+          <div class="text-gray-600 dark:text-gray-300">顧客満足度</div>
+        </div>
+        <div class="text-center bg-gradient-to-br from-orange-50 to-orange-100 dark:from-orange-900/20 dark:to-orange-800/20 rounded-2xl p-6">
+          <div class="text-3xl font-bold text-orange-600 dark:text-orange-400 mb-2">24/7</div>
+          <div class="text-gray-600 dark:text-gray-300">サポート体制</div>
+        </div>
+      </div>
+
+      <!-- Featured Projects -->
+      <div class="mb-16">
+        <h2 class="text-3xl font-bold text-center mb-12 text-gray-900 dark:text-white">
+          主要プロジェクト
+        </h2>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <ProjectCard
+            title="Eコマースプラットフォーム"
+            description="大手小売業向けの次世代Eコマースプラットフォーム。AI推薦システムとリアルタイム在庫管理を統合し、売上向上を実現。"
+            technologies={['React', 'Node.js', 'PostgreSQL', 'Redis', 'AWS']}
+            image="/api/placeholder/400/300"
+            link="#"
+            featured={true}
+          />
+          <ProjectCard
+            title="AI予測分析システム"
+            description="製造業向けの需要予測システム。機械学習アルゴリズムにより在庫最適化とコスト削減を実現。"
+            technologies={['Python', 'TensorFlow', 'FastAPI', 'Docker', 'Kubernetes']}
+            image="/api/placeholder/400/300"
+            link="#"
+            featured={true}
+          />
+          <ProjectCard
+            title="ブロックチェーン認証システム"
+            description="金融機関向けの分散型認証システム。セキュリティと透明性を両立した革新的なソリューション。"
+            technologies={['Solidity', 'Web3.js', 'React', 'Node.js', 'IPFS']}
+            image="/api/placeholder/400/300"
+            link="#"
+            featured={true}
+          />
+          <ProjectCard
+            title="モバイルアプリ開発"
+            description="スタートアップ向けのiOS/Androidアプリ。ユーザーエンゲージメントを重視したUXデザイン。"
+            technologies={['React Native', 'TypeScript', 'Firebase', 'Redux']}
+            image="/api/placeholder/400/300"
+            link="#"
+            featured={false}
+          />
+          <ProjectCard
+            title="クラウド移行プロジェクト"
+            description="レガシーシステムのクラウド移行。マイクロサービスアーキテクチャへの段階的移行を実現。"
+            technologies={['AWS', 'Docker', 'Kubernetes', 'Terraform', 'Jenkins']}
+            image="/api/placeholder/400/300"
+            link="#"
+            featured={false}
+          />
+          <ProjectCard
+            title="データ分析ダッシュボード"
+            description="企業向けのリアルタイムデータ分析ダッシュボード。ビジネスインサイトの可視化を実現。"
+            technologies={['Vue.js', 'D3.js', 'Python', 'Apache Kafka', 'Elasticsearch']}
+            image="/api/placeholder/400/300"
+            link="#"
+            featured={false}
+          />
+        </div>
+      </div>
+
+      <!-- Industry Solutions -->
+      <div class="bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-900 rounded-2xl p-8 mb-16">
+        <h2 class="text-3xl font-bold text-center mb-8 text-gray-900 dark:text-white">
+          業界別ソリューション
+        </h2>
+        <div class="grid md:grid-cols-3 gap-8">
+          <div class="text-center">
+            <div class="w-16 h-16 bg-blue-500 rounded-xl flex items-center justify-center text-white text-2xl mx-auto mb-4">
+              🏭
+            </div>
+            <h3 class="text-xl font-semibold mb-3 text-gray-900 dark:text-white">製造業</h3>
+            <p class="text-gray-600 dark:text-gray-300 text-sm">
+              IoT、AI予測分析、品質管理システムで製造プロセスの最適化を実現
+            </p>
+          </div>
+          <div class="text-center">
+            <div class="w-16 h-16 bg-green-500 rounded-xl flex items-center justify-center text-white text-2xl mx-auto mb-4">
+              🏦
+            </div>
+            <h3 class="text-xl font-semibold mb-3 text-gray-900 dark:text-white">金融業</h3>
+            <p class="text-gray-600 dark:text-gray-300 text-sm">
+              ブロックチェーン、セキュリティ強化、コンプライアンス対応システム
+            </p>
+          </div>
+          <div class="text-center">
+            <div class="w-16 h-16 bg-purple-500 rounded-xl flex items-center justify-center text-white text-2xl mx-auto mb-4">
+              🛒
+            </div>
+            <h3 class="text-xl font-semibold mb-3 text-gray-900 dark:text-white">小売業</h3>
+            <p class="text-gray-600 dark:text-gray-300 text-sm">
+              Eコマース、在庫管理、顧客分析で売上向上と顧客満足度向上を実現
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Testimonials -->
+      <div class="text-center">
+        <h2 class="text-3xl font-bold mb-8 text-gray-900 dark:text-white">
+          お客様の声
+        </h2>
+        <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          <div class="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg">
+            <p class="text-gray-600 dark:text-gray-300 mb-4 italic">
+              "Ludo Technologiesの技術力とプロジェクト管理能力により、予定通りにシステムをリリースできました。"
+            </p>
+            <div class="font-semibold text-gray-900 dark:text-white">田中 様</div>
+            <div class="text-sm text-gray-500 dark:text-gray-400">大手製造業 システム部長</div>
+          </div>
+          <div class="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg">
+            <p class="text-gray-600 dark:text-gray-300 mb-4 italic">
+              "革新的なAIソリューションにより、業務効率が大幅に向上しました。"
+            </p>
+            <div class="font-semibold text-gray-900 dark:text-white">佐藤 様</div>
+            <div class="text-sm text-gray-500 dark:text-gray-400">スタートアップ CEO</div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
