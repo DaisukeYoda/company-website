@@ -198,7 +198,7 @@ import Layout from '../layouts/Layout.astro';
       </div>
 
       <div class="max-w-3xl mx-auto bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg border border-gray-200 dark:border-gray-700 application-form-section">
-        <form action="#" method="POST" class="space-y-6">
+        <form id="application-form" action="/api/apply" method="POST" class="space-y-6">
           <div>
             <label for="name" class="block text-lg font-medium text-gray-700 dark:text-gray-200 mb-2">氏名</label>
             <input type="text" id="name" name="name" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white p-3 transition-colors duration-200" placeholder="氏名をご入力ください"/>
@@ -218,7 +218,7 @@ import Layout from '../layouts/Layout.astro';
             <p class="mt-2 text-sm text-gray-500 dark:text-gray-400">PDF形式のファイルをアップロードしてください。</p>
           </div>
           <div>
-            <button type="submit" class="w-full inline-flex items-center justify-center px-8 py-4 rounded-xl bg-gradient-to-r from-primary-600 to-accent-600 text-white font-semibold text-lg hover:from-primary-700 hover:to-accent-700 transition-all transform hover:scale-105 hover:shadow-xl shadow-lg magnet-button">
+            <button type="submit" id="submit-button" class="w-full inline-flex items-center justify-center px-8 py-4 rounded-xl bg-gradient-to-r from-primary-600 to-accent-600 text-white font-semibold text-lg hover:from-primary-700 hover:to-accent-700 transition-all transform hover:scale-105 hover:shadow-xl shadow-lg magnet-button">
               応募する
               <svg class="w-6 h-6 ml-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
@@ -226,6 +226,7 @@ import Layout from '../layouts/Layout.astro';
             </button>
           </div>
         </form>
+        <div id="form-message" class="mt-6 text-center text-lg font-semibold"></div>
       </div>
     </div>
   </section>
@@ -307,12 +308,55 @@ import Layout from '../layouts/Layout.astro';
     }
 
     // 動機入力フォームの文字数カウンター
-    const motivationTextarea = document.getElementById('motivation') as HTMLTextAreaElement;
+    const motivationTextarea = document.getElementById('motivation');
     const motivationCharsLeft = document.getElementById('motivation-chars-left');
     if (motivationTextarea && motivationCharsLeft) {
       motivationTextarea.addEventListener('input', () => {
         const remaining = 200 - motivationTextarea.value.length;
-        motivationCharsLeft.textContent = remaining.toString();
+        motivationCharsLeft.textContent = remaining;
+      });
+    }
+
+    // 応募フォームの送信処理
+    const applicationFormElement = document.getElementById('application-form');
+    const submitButtonElement = document.getElementById('submit-button');
+    const formMessageElement = document.getElementById('form-message');
+
+    if (applicationFormElement && submitButtonElement && formMessageElement) {
+      applicationFormElement.addEventListener('submit', async (event) => {
+        event.preventDefault(); // デフォルトのフォーム送信を停止
+
+        submitButtonElement.disabled = true; // 送信ボタンを無効化
+        submitButtonElement.textContent = '送信中...';
+        formMessageElement.textContent = ''; // メッセージをクリア
+
+        const formData = new FormData(applicationFormElement); // フォームデータを取得
+
+        try {
+          const response = await fetch(applicationFormElement.action, {
+            method: applicationFormElement.method,
+            body: formData,
+          });
+
+          const data = await response.json();
+
+          if (response.ok) {
+            formMessageElement.textContent = '応募が完了しました！ありがとうございます。';
+            formMessageElement.className = 'mt-6 text-center text-lg font-semibold text-green-600 dark:text-green-400';
+            applicationFormElement.reset(); // フォームをリセット
+            if (motivationCharsLeft) motivationCharsLeft.textContent = '200'; // 文字数カウンターをリセット
+          } else {
+            formMessageElement.textContent = `応募に失敗しました: ${data.message || '不明なエラー'}`;
+            formMessageElement.className = 'mt-6 text-center text-lg font-semibold text-red-600 dark:text-red-400';
+          }
+        } catch (error) {
+          console.error('Fetch error:', error);
+          formMessageElement.textContent = '応募中にエラーが発生しました。もう一度お試しください。'
+          formMessageElement.className = 'mt-6 text-center text-lg font-semibold text-red-600 dark:text-red-400';
+        } finally {
+          submitButtonElement.disabled = false; // 送信ボタンを有効化
+          submitButtonElement.innerHTML = `応募する <svg class="w-6 h-6 ml-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path></svg>`;
+        }
       });
     }
   });
