@@ -1,0 +1,102 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="お問い合わせ - Tech Lab">
+  <section class="py-20 bg-white dark:bg-gray-900">
+    <div class="container mx-auto px-6 max-w-4xl">
+      <h1 class="text-4xl md:text-5xl font-bold text-center mb-4 bg-gradient-to-r from-primary-600 to-accent-600 bg-clip-text text-transparent">
+        お問い合わせ
+      </h1>
+      <p class="text-xl text-gray-600 dark:text-gray-300 text-center mb-12">
+        プロジェクトに関するご質問やご相談はお気軽に
+      </p>
+
+      <div class="grid md:grid-cols-2 gap-12 mb-12">
+        <div class="bg-gray-50 dark:bg-gray-800 rounded-2xl p-8">
+          <h2 class="text-2xl font-bold mb-6 text-gray-900 dark:text-white">お問い合わせ情報</h2>
+          <div class="space-y-6">
+            <div>
+              <h3 class="text-lg font-semibold mb-2 text-gray-800 dark:text-gray-200">
+                <span class="text-2xl mr-2">📧</span>メール
+              </h3>
+              <p class="text-gray-600 dark:text-gray-300">info@techlab.jp</p>
+            </div>
+            <div>
+              <h3 class="text-lg font-semibold mb-2 text-gray-800 dark:text-gray-200">
+                <span class="text-2xl mr-2">🕰️</span>対応時間
+              </h3>
+              <p class="text-gray-600 dark:text-gray-300">平日 9:00 - 18:00</p>
+            </div>
+            <div>
+              <h3 class="text-lg font-semibold mb-2 text-gray-800 dark:text-gray-200">
+                <span class="text-2xl mr-2">🌐</span>GitHub
+              </h3>
+              <a href="https://github.com/DaisukeYoda" target="_blank" rel="noopener noreferrer" class="text-primary-600 dark:text-primary-400 hover:underline">
+                github.com/DaisukeYoda
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-gray-50 dark:bg-gray-800 rounded-2xl p-8">
+          <h2 class="text-2xl font-bold mb-6 text-gray-900 dark:text-white">こんなご相談を承っています</h2>
+          <ul class="space-y-3">
+            <li class="flex items-start">
+              <span class="text-primary-500 mr-2 text-xl">✓</span>
+              <span class="text-gray-600 dark:text-gray-300">新規システム開発のご相談</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-primary-500 mr-2 text-xl">✓</span>
+              <span class="text-gray-600 dark:text-gray-300">既存システムの改善・リファクタリング</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-primary-500 mr-2 text-xl">✓</span>
+              <span class="text-gray-600 dark:text-gray-300">AI/機械学習の導入支援</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-primary-500 mr-2 text-xl">✓</span>
+              <span class="text-gray-600 dark:text-gray-300">ブロックチェーンソリューション開発</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-primary-500 mr-2 text-xl">✓</span>
+              <span class="text-gray-600 dark:text-gray-300">技術コンサルティング</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <form class="bg-gray-50 dark:bg-gray-800 rounded-2xl p-8">
+        <h2 class="text-2xl font-bold mb-6 text-gray-900 dark:text-white">お問い合わせフォーム</h2>
+        <div class="space-y-6">
+          <div>
+            <label for="name" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">お名前 <span class="text-red-500">*</span></label>
+            <input type="text" id="name" name="name" required class="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500" />
+          </div>
+          <div>
+            <label for="email" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">メールアドレス <span class="text-red-500">*</span></label>
+            <input type="email" id="email" name="email" required class="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500" />
+          </div>
+          <div>
+            <label for="subject" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">件名</label>
+            <input type="text" id="subject" name="subject" class="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500" />
+          </div>
+          <div>
+            <label for="message" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">お問い合わせ内容 <span class="text-red-500">*</span></label>
+            <textarea id="message" name="message" rows="6" required class="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500"></textarea>
+          </div>
+          <button type="submit" class="w-full py-3 px-6 rounded-lg bg-gradient-to-r from-primary-600 to-primary-700 text-white font-medium hover:from-primary-700 hover:to-primary-800 transition-all transform hover:scale-[1.02]">
+            送信する
+          </button>
+        </div>
+      </form>
+    </div>
+  </section>
+</Layout>
+
+<script>
+  document.querySelector('form')?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    alert('お問い合わせありがとうございます。メール送信機能は実装中です。');
+  });
+</script>

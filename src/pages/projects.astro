@@ -1,0 +1,73 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ProjectDetail from '../components/ProjectDetail.tsx';
+
+const projectDetails = [
+  {
+    title: '国会議事録分析システム',
+    description: '国会議事録APIからデータを収集し、政治家別の発言分析や統計情報を提供するWebアプリケーション',
+    features: ['政治家プロフィール表示', '発言検索・フィルタリング', 'トレンド分析・可視化', '委員会別活動統計'],
+    tech: {
+      backend: ['Python 3.12', 'FastAPI', 'MongoDB', 'Docker'],
+      frontend: ['Next.js 15', 'TypeScript', 'Tailwind CSS', 'Recharts'],
+      infrastructure: ['Railway', 'Vercel', 'MongoDB Atlas', 'GitHub Actions']
+    },
+    status: 'production',
+    github: 'kokkai-analysis'
+  },
+  {
+    title: 'JapanTaxSimulator',
+    description: '日本経済の税制変更がマクロ経済に与える影響を分析する動学的確率的一般均衡（DSGE）モデル',
+    features: ['消費税・所得税・法人税の影響分析', '動学的シミュレーション', '厨生分析', '政策シナリオ比較'],
+    tech: {
+      core: ['Python', 'NumPy', 'SciPy', 'Pandas'],
+      visualization: ['Matplotlib', 'Jupyter Notebook'],
+      methodology: ['DSGEモデル', 'Klein解法', 'モンテカルロシミュレーション']
+    },
+    status: 'active',
+    github: 'JapanTaxSimulator'
+  },
+  {
+    title: 'Fast-Stake Platform',
+    description: 'Web3ステーキングプラットフォーム。複数のブロックチェーンに対応し、暗号通貨のステーキングを簡単に管理',
+    features: ['マルチチェーン対応', 'リアルタイム市場データ', 'スワップ機能', 'ウォレット管理'],
+    tech: {
+      frontend: ['Next.js', 'TypeScript', 'Tailwind CSS'],
+      blockchain: ['ThirdWeb SDK', 'Ethereum', 'Web3.js'],
+      backend: ['Node.js', 'Express', 'MongoDB']
+    },
+    status: 'development',
+    github: 'fast-stake'
+  },
+  {
+    title: 'LightAgent System',
+    description: 'AIを活用した自動化エージェントシステム。様々なタスクを自動化し、業務効率化を実現',
+    features: ['タスク自動化', 'AI駆動判断', 'ワークフロー管理', 'レポート生成'],
+    tech: {
+      frontend: ['React 19', 'TypeScript', 'Tailwind CSS'],
+      backend: ['Python', 'FastAPI', 'Celery'],
+      ai: ['OpenAI API', 'LangChain', 'Vector DB']
+    },
+    status: 'development',
+    github: 'LightAgent'
+  }
+];
+---
+
+<Layout title="プロジェクト - Tech Lab">
+  <section class="py-20 bg-white dark:bg-gray-900">
+    <div class="container mx-auto px-6">
+      <h1 class="text-4xl md:text-5xl font-bold text-center mb-4 bg-gradient-to-r from-primary-600 to-accent-600 bg-clip-text text-transparent">
+        プロジェクト
+      </h1>
+      <p class="text-xl text-gray-600 dark:text-gray-300 text-center mb-12 max-w-2xl mx-auto">
+        最新技術を活用した革新的なソリューション
+      </p>
+      <div class="space-y-12">
+        {projectDetails.map((project, index) => (
+          <ProjectDetail client:visible {...project} index={index} />
+        ))}
+      </div>
+    </div>
+  </section>
+</Layout>
