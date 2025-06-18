@@ -7,8 +7,8 @@ const GA_MEASUREMENT_ID = import.meta.env.PUBLIC_GA_MEASUREMENT_ID || 'G-XXXXXXX
   <script is:inline define:vars={{ GA_MEASUREMENT_ID }}>
     // カスタムイベント送信関数
     window.trackEvent = function(eventName, parameters = {}) {
-      if (typeof gtag !== 'undefined') {
-        gtag('event', eventName, {
+      if (typeof window.gtag !== 'undefined') {
+        window.gtag('event', eventName, {
           ...parameters,
           send_to: GA_MEASUREMENT_ID
         });

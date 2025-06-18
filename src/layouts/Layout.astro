@@ -60,7 +60,7 @@ const GA_MEASUREMENT_ID = import.meta.env.PUBLIC_GA_MEASUREMENT_ID || 'G-XXXXXXX
     <meta name="msapplication-TileColor" content="#667eea" />
     
     <!-- Schema.org Structured Data -->
-    <script type="application/ld+json">
+    <script type="application/ld+json" is:inline>
     {
       "@context": "https://schema.org",
       "@type": "Organization",
@@ -126,7 +126,7 @@ const GA_MEASUREMENT_ID = import.meta.env.PUBLIC_GA_MEASUREMENT_ID || 'G-XXXXXXX
     
     <!-- Google Analytics -->
     {GA_MEASUREMENT_ID !== 'G-XXXXXXXXXX' && (
-      <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}></script>
+      <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`} is:inline></script>
     )}
     {GA_MEASUREMENT_ID !== 'G-XXXXXXXXXX' && (
       <script is:inline define:vars={{ GA_MEASUREMENT_ID, title }}>

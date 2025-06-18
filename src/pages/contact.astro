@@ -157,7 +157,7 @@ import Layout from '../layouts/Layout.astro';
             if (typeof window.trackFormSubmission === 'function') {
               const serviceType = formData.get('service') || 'general';
               window.trackFormSubmission('contact_form', 'web_form');
-              window.trackEvent('contact_form_success', {
+              window.trackEvent?.('contact_form_success', {
                 service_type: serviceType,
                 form_method: 'contact_page'
               });
@@ -169,7 +169,7 @@ import Layout from '../layouts/Layout.astro';
           } else {
             // Google Analytics イベント送信（エラー時）
             if (typeof window.trackEvent === 'function') {
-              window.trackEvent('contact_form_error', {
+              window.trackEvent?.('contact_form_error', {
                 error_type: 'server_error',
                 error_message: data.message || 'unknown_error'
               });
@@ -183,9 +183,10 @@ import Layout from '../layouts/Layout.astro';
           
           // Google Analytics イベント送信（ネットワークエラー時）
           if (typeof window.trackEvent === 'function') {
-            window.trackEvent('contact_form_error', {
+            const errorMessage = error instanceof Error ? error.message : 'fetch_failed';
+            window.trackEvent?.('contact_form_error', {
               error_type: 'network_error',
-              error_message: error.message || 'fetch_failed'
+              error_message: errorMessage
             });
           }
 
