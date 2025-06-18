@@ -1,0 +1,110 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ProjectCard from '../components/ProjectCard.tsx';
+
+const projects = [
+  {
+    title: '国会議事録分析システム',
+    description: '政治家の発言分析とトレンド可視化',
+    tech: ['FastAPI', 'Next.js', 'MongoDB'],
+    gradient: 'from-blue-400 to-cyan-300',
+    icon: '📊'
+  },
+  {
+    title: 'JapanTaxSimulator',
+    description: '日本経済の税制影響シミュレーション',
+    tech: ['Python', 'DSGE', 'Jupyter'],
+    gradient: 'from-green-400 to-emerald-300',
+    icon: '💹'
+  },
+  {
+    title: 'Fast-Stake Platform',
+    description: 'Web3ステーキングプラットフォーム',
+    tech: ['Next.js', 'Web3', 'Blockchain'],
+    gradient: 'from-purple-400 to-pink-300',
+    icon: '🔗'
+  },
+  {
+    title: 'LightAgent System',
+    description: 'AI駆動の自動化エージェント',
+    tech: ['React', 'TypeScript', 'AI'],
+    gradient: 'from-orange-400 to-red-300',
+    icon: '🤖'
+  }
+];
+---
+
+<Layout title="Tech Lab - Modern Tech Solutions">
+  <!-- Hero Section -->
+  <section class="relative overflow-hidden bg-white dark:bg-gray-900">
+    <div class="absolute inset-0 bg-gradient-to-br from-primary-100 via-white to-accent-100 dark:from-gray-900 dark:via-gray-900 dark:to-gray-800 opacity-50"></div>
+    <div class="relative container mx-auto px-6 py-24 md:py-32">
+      <div class="text-center">
+        <h1 class="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-primary-600 to-accent-600 bg-clip-text text-transparent animate-gradient-x">
+          次世代テクノロジーで
+          <br />ビジネスを革新する
+        </h1>
+        <p class="text-xl text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto">
+          政策分析、フィンテック、ブロックチェーン、AIの最先端ソリューションを提供
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="/projects" class="inline-flex items-center px-6 py-3 rounded-lg bg-gradient-to-r from-primary-600 to-primary-700 text-white font-medium hover:from-primary-700 hover:to-primary-800 transition-all transform hover:scale-105">
+            プロジェクトを見る
+            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+            </svg>
+          </a>
+          <a href="/contact" class="inline-flex items-center px-6 py-3 rounded-lg border-2 border-primary-600 text-primary-600 dark:text-primary-400 font-medium hover:bg-primary-50 dark:hover:bg-gray-800 transition-all">
+            お問い合わせ
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Preview -->
+  <section class="py-20 bg-gray-50 dark:bg-gray-800">
+    <div class="container mx-auto px-6">
+      <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-900 dark:text-white">
+        主要プロジェクト
+      </h2>
+      <div class="grid md:grid-cols-2 gap-8">
+        {projects.map((project) => (
+          <ProjectCard client:visible {...project} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="py-20 bg-white dark:bg-gray-900">
+    <div class="container mx-auto px-6">
+      <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-900 dark:text-white">
+        私たちの強み
+      </h2>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="text-center group">
+          <div class="w-20 h-20 mx-auto mb-4 rounded-full bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center text-white text-2xl group-hover:scale-110 transition-transform">
+            🚀
+          </div>
+          <h3 class="text-xl font-semibold mb-2 text-gray-900 dark:text-white">最新技術</h3>
+          <p class="text-gray-600 dark:text-gray-300">常に最新の技術スタックを採用し、革新的なソリューションを提供</p>
+        </div>
+        <div class="text-center group">
+          <div class="w-20 h-20 mx-auto mb-4 rounded-full bg-gradient-to-br from-green-400 to-green-600 flex items-center justify-center text-white text-2xl group-hover:scale-110 transition-transform">
+            🎯
+          </div>
+          <h3 class="text-xl font-semibold mb-2 text-gray-900 dark:text-white">品質重視</h3>
+          <p class="text-gray-600 dark:text-gray-300">テスト駆動開発とCI/CDで高品質なコードを維持</p>
+        </div>
+        <div class="text-center group">
+          <div class="w-20 h-20 mx-auto mb-4 rounded-full bg-gradient-to-br from-purple-400 to-purple-600 flex items-center justify-center text-white text-2xl group-hover:scale-110 transition-transform">
+            💡
+          </div>
+          <h3 class="text-xl font-semibold mb-2 text-gray-900 dark:text-white">革新的思考</h3>
+          <p class="text-gray-600 dark:text-gray-300">既存の枠にとらわれない創造的なアプローチ</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
