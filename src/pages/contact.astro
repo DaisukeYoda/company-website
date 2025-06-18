@@ -126,19 +126,19 @@ import Layout from '../layouts/Layout.astro';
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
-    const contactForm = document.getElementById('contact-form');
-    const contactSubmitButton = document.getElementById('contact-submit-button');
+    const contactForm = document.getElementById('contact-form') as HTMLFormElement;
+    const contactSubmitButton = document.getElementById('contact-submit-button') as HTMLButtonElement;
     const contactFormMessage = document.getElementById('contact-form-message');
 
     if (contactForm && contactSubmitButton && contactFormMessage) {
       contactForm.addEventListener('submit', async (event) => {
-        event.preventDefault(); // デフォルトのフォーム送信を停止
+        event.preventDefault();
 
-        contactSubmitButton.disabled = true; // 送信ボタンを無効化
+        contactSubmitButton.disabled = true;
         contactSubmitButton.textContent = '送信中...';
-        contactFormMessage.textContent = ''; // メッセージをクリア
+        contactFormMessage.textContent = '';
 
-        const formData = new FormData(contactForm); // フォームデータを取得
+        const formData = new FormData(contactForm);
 
         try {
           const response = await fetch(contactForm.action, {
@@ -151,7 +151,7 @@ import Layout from '../layouts/Layout.astro';
           if (response.ok) {
             contactFormMessage.textContent = 'お問い合わせありがとうございます。内容を確認後、ご連絡いたします。';
             contactFormMessage.className = 'mt-6 text-center text-lg font-semibold text-green-600 dark:text-green-400';
-            contactForm.reset(); // フォームをリセット
+            contactForm.reset();
           } else {
             contactFormMessage.textContent = `送信に失敗しました: ${data.message || '不明なエラー'}`;
             contactFormMessage.className = 'mt-6 text-center text-lg font-semibold text-red-600 dark:text-red-400';
@@ -161,7 +161,7 @@ import Layout from '../layouts/Layout.astro';
           contactFormMessage.textContent = 'お問い合わせ中にエラーが発生しました。もう一度お試しください。'
           contactFormMessage.className = 'mt-6 text-center text-lg font-semibold text-red-600 dark:text-red-400';
         } finally {
-          contactSubmitButton.disabled = false; // 送信ボタンを有効化
+          contactSubmitButton.disabled = false;
           contactSubmitButton.innerHTML = `送信する`;
         }
       });
