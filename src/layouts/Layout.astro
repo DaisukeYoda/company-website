@@ -478,22 +478,24 @@ const GA_MEASUREMENT_ID = import.meta.env.PUBLIC_GA_MEASUREMENT_ID || 'G-XXXXXXX
       
       // ハンバーガーアイコンをXに変換
       const lines = hamburgerIcon?.querySelectorAll('path');
-      gsap.timeline()
-        .to(lines[0], {
-          attr: { d: "M18 6L6 18" },
-          duration: 0.3,
-          ease: "power2.inOut"
-        })
-        .to(lines[1], {
-          opacity: 0,
-          duration: 0.2,
-          ease: "power2.inOut"
-        }, "-=0.3")
-        .to(lines[2], {
-          attr: { d: "M6 6l12 12" },
-          duration: 0.3,
-          ease: "power2.inOut"
-        }, "-=0.3");
+      if (lines && lines.length >= 3) {
+        gsap.timeline()
+          .to(lines[0], {
+            attr: { d: "M18 6L6 18" },
+            duration: 0.3,
+            ease: "power2.inOut"
+          })
+          .to(lines[1], {
+            opacity: 0,
+            duration: 0.2,
+            ease: "power2.inOut"
+          }, "-=0.3")
+          .to(lines[2], {
+            attr: { d: "M6 6l12 12" },
+            duration: 0.3,
+            ease: "power2.inOut"
+          }, "-=0.3");
+      }
       
       // メニューコンテナのアニメーション
       gsap.fromTo(mobileMenu, 
@@ -512,22 +514,24 @@ const GA_MEASUREMENT_ID = import.meta.env.PUBLIC_GA_MEASUREMENT_ID || 'G-XXXXXXX
       );
       
       // 各メニューアイテムを順番にアニメーション
-      gsap.fromTo(menuItems,
-        {
-          opacity: 0,
-          x: -30,
-          rotateY: -90
-        },
-        {
-          opacity: 1,
-          x: 0,
-          rotateY: 0,
-          duration: 0.5,
-          stagger: 0.1,
-          ease: "back.out(1.7)",
-          delay: 0.1
-        }
-      );
+      if (menuItems && menuItems.length > 0) {
+        gsap.fromTo(menuItems,
+          {
+            opacity: 0,
+            x: -30,
+            rotateY: -90
+          },
+          {
+            opacity: 1,
+            x: 0,
+            rotateY: 0,
+            duration: 0.5,
+            stagger: 0.1,
+            ease: "back.out(1.7)",
+            delay: 0.1
+          }
+        );
+      }
       
       // 背景のブラー効果
       gsap.to('main', {
@@ -541,35 +545,39 @@ const GA_MEASUREMENT_ID = import.meta.env.PUBLIC_GA_MEASUREMENT_ID || 'G-XXXXXXX
       
       // ハンバーガーアイコンを元に戻す
       const lines = hamburgerIcon?.querySelectorAll('path');
-      gsap.timeline()
-        .to(lines[0], {
-          attr: { d: "M4 6h16" },
-          duration: 0.3,
-          ease: "power2.inOut"
-        })
-        .to(lines[1], {
-          opacity: 1,
-          duration: 0.2,
-          ease: "power2.inOut"
-        }, "-=0.3")
-        .to(lines[2], {
-          attr: { d: "M4 18h16" },
-          duration: 0.3,
-          ease: "power2.inOut"
-        }, "-=0.3");
+      if (lines && lines.length >= 3) {
+        gsap.timeline()
+          .to(lines[0], {
+            attr: { d: "M4 6h16" },
+            duration: 0.3,
+            ease: "power2.inOut"
+          })
+          .to(lines[1], {
+            opacity: 1,
+            duration: 0.2,
+            ease: "power2.inOut"
+          }, "-=0.3")
+          .to(lines[2], {
+            attr: { d: "M4 18h16" },
+            duration: 0.3,
+            ease: "power2.inOut"
+          }, "-=0.3");
+      }
       
       // 各メニューアイテムを逆順でアニメーション
-      gsap.to(menuItems, {
-        opacity: 0,
-        x: 30,
-        rotateY: 90,
-        duration: 0.3,
-        stagger: {
-          each: 0.05,
-          from: "end"
-        },
-        ease: "power2.in"
-      });
+      if (menuItems && menuItems.length > 0) {
+        gsap.to(menuItems, {
+          opacity: 0,
+          x: 30,
+          rotateY: 90,
+          duration: 0.3,
+          stagger: {
+            each: 0.05,
+            from: "end"
+          },
+          ease: "power2.in"
+        });
+      }
       
       // メニューコンテナを閉じる
       gsap.to(mobileMenu, {
