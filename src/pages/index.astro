@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import ProjectCard from '../components/ProjectCard.tsx';
+import CompanyPhilosophy from '../components/CompanyPhilosophy.astro';
 import web3Image from '../assets/business/web3.png';
 import aiImage from '../assets/business/ai.png';
 import cloudImage from '../assets/business/cloud.png';
@@ -63,14 +64,14 @@ const projects = [
       <div class="floating-element absolute top-1/3 left-1/4 w-12 h-12 bg-gradient-to-br from-pink-400 to-red-400 rounded-lg opacity-20 rotate-45"></div>
     </div>
     
-    <div class="relative container mx-auto px-6 py-24 md:py-32">
+    <div class="relative container mx-auto px-6 py-32 md:py-40">
       <div class="text-center">
-        <div class="mb-8">
+        <div class="mb-12">
           <div class="inline-flex items-center px-4 py-2 rounded-full bg-gradient-to-r from-primary-100 to-accent-100 dark:from-primary-900/30 dark:to-accent-900/30 border border-primary-200 dark:border-primary-700 text-primary-700 dark:text-primary-300 text-sm font-medium animate-fade-in-up">
             🚀 次世代テクノロジーソリューション
           </div>
         </div>
-        <h1 class="text-5xl md:text-7xl font-bold mb-8 text-primary-600 dark:text-primary-400 leading-tight">
+        <h1 class="text-5xl md:text-7xl font-bold mb-12 text-primary-600 dark:text-primary-400 leading-tight">
           <span class="block animate-text-reveal" id="hero-title-1">
             <span class="hidden sm:inline">次世代テクノロジーで</span>
             <span class="sm:hidden">次世代<br>テクノロジーで</span>
@@ -81,41 +82,9 @@ const projects = [
           </span>
         </h1>
         
-        <p class="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed animate-fade-in-up" style="animation-delay: 0.6s;">
-          政策分析、フィンテック、ブロックチェーン、AIの最先端ソリューションを提供し、
-          <span class="text-primary-600 dark:text-primary-400 font-semibold">未来を創造</span>します
+        <p class="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-16 max-w-3xl mx-auto leading-relaxed animate-fade-in-up" style="animation-delay: 0.6s;">
+          最先端技術で<span class="text-primary-600 dark:text-primary-400 font-semibold">新しい価値</span>を創造します
         </p>
-        
-        <div class="flex flex-col sm:flex-row gap-6 justify-center animate-fade-in-up" style="animation-delay: 0.9s;">
-          <a href="/projects" class="group inline-flex items-center px-8 py-4 rounded-xl bg-gradient-to-r from-primary-600 to-primary-700 text-white font-semibold text-lg hover:from-primary-700 hover:to-primary-800 transition-all transform hover:scale-105 hover:shadow-2xl shadow-lg magnet-button">
-            プロジェクトを見る
-            <svg class="w-6 h-6 ml-3 group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
-            </svg>
-          </a>
-          <a href="/contact" class="group inline-flex items-center px-8 py-4 rounded-xl border-2 border-primary-600 text-primary-600 dark:text-primary-400 font-semibold text-lg hover:bg-primary-50 dark:hover:bg-gray-800 transition-all transform hover:scale-105 magnet-button">
-            お問い合わせ
-            <svg class="w-6 h-6 ml-3 group-hover:rotate-12 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
-            </svg>
-          </a>
-        </div>
-        
-        <!-- Stats Section -->
-        <div class="grid grid-cols-3 gap-8 mt-16 max-w-2xl mx-auto animate-fade-in-up" style="animation-delay: 1.2s;">
-          <div class="text-center stat-item">
-            <div class="text-3xl md:text-4xl font-bold text-primary-600 dark:text-primary-400 mb-2 counter" data-target="50">0</div>
-            <div class="text-gray-600 dark:text-gray-400 text-sm">完了プロジェクト</div>
-          </div>
-          <div class="text-center stat-item">
-            <div class="text-3xl md:text-4xl font-bold text-accent-600 dark:text-accent-400 mb-2 counter" data-target="95">0</div>
-            <div class="text-gray-600 dark:text-gray-400 text-sm">顧客満足度</div>
-          </div>
-          <div class="text-center stat-item">
-            <div class="text-3xl md:text-4xl font-bold text-purple-600 dark:text-purple-400 mb-2 counter" data-target="24">0</div>
-            <div class="text-gray-600 dark:text-gray-400 text-sm">技術スタック</div>
-          </div>
-        </div>
       </div>
     </div>
   </section>
@@ -593,61 +562,7 @@ const projects = [
       
       <!-- 企業理念セクション -->
       <div class="mb-16">
-        <div class="relative bg-gradient-to-br from-white/80 to-white/60 dark:from-gray-800/80 dark:to-gray-800/60 backdrop-blur-xl rounded-3xl p-8 md:p-12 border border-white/20 dark:border-gray-700/20 shadow-2xl overflow-hidden">
-          <!-- 背景パターン -->
-          <div class="absolute inset-0 bg-grid-pattern opacity-5"></div>
-          
-          <!-- 浮遊する要素 -->
-          <div class="absolute -top-4 -right-4 w-16 h-16 bg-gradient-to-br from-primary-400 to-accent-400 rounded-full opacity-20 animate-pulse floating-element"></div>
-          <div class="absolute -bottom-4 -left-4 w-12 h-12 bg-gradient-to-br from-accent-400 to-purple-400 rounded-full opacity-20 animate-pulse delay-1000 floating-element"></div>
-          
-          <div class="relative">
-            <div class="text-center mb-8">
-              <div class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-primary-500 to-accent-500 text-white rounded-full text-lg font-semibold mb-6 company-badge">
-                🏢 企業理念
-              </div>
-              <h3 class="text-4xl md:text-5xl font-bold mb-6 text-gray-900 dark:text-white leading-tight company-title">
-                <span class="hidden sm:inline">
-                  <span class="bg-gradient-to-r from-primary-600 to-accent-600 bg-clip-text text-transparent">
-                    テクノロジーで未来を創造
-                  </span>
-                </span>
-                <span class="sm:hidden">
-                  <span class="bg-gradient-to-r from-primary-600 to-accent-600 bg-clip-text text-transparent">
-                    テクノロジーで<br>未来を創造
-                  </span>
-                </span>
-              </h3>
-            </div>
-            
-            <div class="max-w-4xl mx-auto">
-              <div class="space-y-6 company-content">
-                <p class="text-xl text-gray-600 dark:text-gray-300 leading-relaxed company-description text-center">
-                  私たちは、テクノロジーの力で人々の生活をより豊かにし、社会の課題を解決することを使命としています。
-                  最新技術を駆使し、お客様のビジネスに真の価値を提供します。
-                </p>
-                
-                <div class="grid md:grid-cols-3 gap-6 company-values">
-                  <div class="text-center value-item">
-                    <div class="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-primary-500 to-accent-500 rounded-2xl flex items-center justify-center text-white text-xl font-bold value-icon">1</div>
-                    <h4 class="font-semibold text-gray-900 dark:text-white mb-2">革新的なソリューションの提供</h4>
-                    <p class="text-gray-600 dark:text-gray-400 text-sm">最新技術を活用した画期的なソリューションで、お客様のビジネスを革新します。</p>
-                  </div>
-                  <div class="text-center value-item">
-                    <div class="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-accent-500 to-purple-500 rounded-2xl flex items-center justify-center text-white text-xl font-bold value-icon">2</div>
-                    <h4 class="font-semibold text-gray-900 dark:text-white mb-2">持続可能な技術開発</h4>
-                    <p class="text-gray-600 dark:text-gray-400 text-sm">環境に配慮し、長期的に価値を提供できる技術開発を推進します。</p>
-                  </div>
-                  <div class="text-center value-item">
-                    <div class="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-purple-500 to-primary-500 rounded-2xl flex items-center justify-center text-white text-xl font-bold value-icon">3</div>
-                    <h4 class="font-semibold text-gray-900 dark:text-white mb-2">お客様との長期的なパートナーシップ</h4>
-                    <p class="text-gray-600 dark:text-gray-400 text-sm">信頼関係を築き、お客様の成長と共に歩むパートナーシップを重視します。</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <CompanyPhilosophy />
       </div>
       
       <!-- 企業情報セクション（削除） -->
@@ -719,7 +634,7 @@ const projects = [
               <p class="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
                 最新技術を駆使したWebアプリケーション、モバイルアプリ、AIシステムの開発を行います。
               </p>
-              <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-400 text-left">
+              <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-400 text-left hidden md:block">
                 <li>• Webアプリケーション開発</li>
                 <li>• モバイルアプリ開発</li>
                 <li>• AI・機械学習システム</li>
@@ -735,7 +650,7 @@ const projects = [
               <p class="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
                 技術戦略の立案から実装まで、お客様のビジネス目標達成をサポートします。
               </p>
-              <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-400 text-left">
+              <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-400 text-left hidden md:block">
                 <li>• 技術戦略立案</li>
                 <li>• アーキテクチャ設計</li>
                 <li>• 技術選定支援</li>
@@ -751,7 +666,7 @@ const projects = [
               <p class="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
                 システムの安定稼働と継続的な改善をサポートし、長期的な価値を提供します。
               </p>
-              <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-400 text-left">
+              <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-400 text-left hidden md:block">
                 <li>• システム保守</li>
                 <li>• パフォーマンス最適化</li>
                 <li>• セキュリティ対策</li>

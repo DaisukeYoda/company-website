@@ -1,0 +1,333 @@
+---
+// 企業理念コンポーネント
+---
+
+<div class="relative bg-gradient-to-br from-white/80 to-white/60 dark:from-gray-800/80 dark:to-gray-800/60 backdrop-blur-xl rounded-3xl p-8 md:p-12 border border-white/20 dark:border-gray-700/20 shadow-2xl overflow-hidden philosophy-container">
+  <!-- 背景パターン -->
+  <div class="absolute inset-0 bg-grid-pattern opacity-5"></div>
+  
+  <!-- 浮遊する要素 -->
+  <div class="absolute -top-4 -right-4 w-16 h-16 bg-gradient-to-br from-primary-400 to-accent-400 rounded-full opacity-20 animate-pulse floating-element"></div>
+  <div class="absolute -bottom-4 -left-4 w-12 h-12 bg-gradient-to-br from-accent-400 to-purple-400 rounded-full opacity-20 animate-pulse delay-1000 floating-element"></div>
+  
+  <div class="relative">
+    <div class="text-center mb-8">
+      <div class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-primary-500 to-accent-500 text-white rounded-full text-lg font-semibold mb-6 company-badge philosophy-badge">
+        🏢 企業理念
+      </div>
+      <h3 class="text-4xl md:text-5xl font-bold mb-6 text-gray-900 dark:text-white leading-tight company-title philosophy-title">
+        <span class="hidden sm:inline">
+          <span class="bg-gradient-to-r from-primary-600 to-accent-600 bg-clip-text text-transparent">
+            テクノロジーで未来を創造
+          </span>
+        </span>
+        <span class="sm:hidden">
+          <span class="bg-gradient-to-r from-primary-600 to-accent-600 bg-clip-text text-transparent">
+            テクノロジーで<br>未来を創造
+          </span>
+        </span>
+      </h3>
+    </div>
+    
+    <div class="max-w-4xl mx-auto">
+      <div class="space-y-6 company-content">
+        <p class="text-xl text-gray-600 dark:text-gray-300 leading-relaxed company-description text-center philosophy-description">
+          私たちは、テクノロジーの力で人々の生活をより豊かにし、社会の課題を解決することを使命としています。
+          最新技術を駆使し、お客様のビジネスに真の価値を提供します。
+        </p>
+        
+        <div class="grid md:grid-cols-3 gap-6 company-values">
+          <div class="text-center value-item philosophy-value" data-value="1">
+            <div class="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-primary-500 to-accent-500 rounded-2xl flex items-center justify-center text-white text-xl font-bold value-icon">1</div>
+            <h4 class="font-semibold text-gray-900 dark:text-white mb-2">革新的なソリューションの提供</h4>
+            <p class="text-gray-600 dark:text-gray-400 text-sm">最新技術を活用した画期的なソリューションで、お客様のビジネスを革新します。</p>
+          </div>
+          <div class="text-center value-item philosophy-value" data-value="2">
+            <div class="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-accent-500 to-purple-500 rounded-2xl flex items-center justify-center text-white text-xl font-bold value-icon">2</div>
+            <h4 class="font-semibold text-gray-900 dark:text-white mb-2">持続可能な技術開発</h4>
+            <p class="text-gray-600 dark:text-gray-400 text-sm">環境に配慮し、長期的に価値を提供できる技術開発を推進します。</p>
+          </div>
+          <div class="text-center value-item philosophy-value" data-value="3">
+            <div class="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-purple-500 to-primary-500 rounded-2xl flex items-center justify-center text-white text-xl font-bold value-icon">3</div>
+            <h4 class="font-semibold text-gray-900 dark:text-white mb-2">お客様との長期的なパートナーシップ</h4>
+            <p class="text-gray-600 dark:text-gray-400 text-sm">信頼関係を築き、お客様の成長と共に歩むパートナーシップを重視します。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .bg-grid-pattern {
+    background-image: 
+      linear-gradient(rgba(0,0,0,0.1) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0,0,0,0.1) 1px, transparent 1px);
+    background-size: 50px 50px;
+  }
+  
+  .floating-element {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+  
+  .value-icon {
+    transition: all 0.3s ease;
+  }
+  
+  .value-item:hover .value-icon {
+    transform: scale(1.1) rotate(5deg);
+  }
+  
+  /* 初期状態のアニメーション用 */
+  .philosophy-container {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  
+  .philosophy-badge {
+    opacity: 0;
+    transform: scale(0.8) rotate(-10deg);
+  }
+  
+  .philosophy-title {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  
+  .philosophy-description {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  
+  .philosophy-value {
+    opacity: 0;
+    transform: translateY(40px) rotateX(15deg);
+  }
+  
+  /* カードホバー効果の調整 */
+  .value-item {
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border-radius: 12px;
+  }
+  
+  .value-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    background: rgba(255, 255, 255, 0.5);
+  }
+  
+  .dark .value-item:hover {
+    background: rgba(255, 255, 255, 0.05);
+  }
+  
+  .value-icon {
+    transition: all 0.3s ease;
+  }
+  
+  .value-item:hover .value-icon {
+    transform: scale(1.1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* グラデーション背景のアニメーション */
+  .philosophy-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, rgba(99, 102, 241, 0.1), rgba(168, 85, 247, 0.1), rgba(236, 72, 153, 0.1));
+    opacity: 0;
+    transition: opacity 0.6s ease;
+    border-radius: inherit;
+  }
+  
+  .philosophy-container:hover::before {
+    opacity: 1;
+  }
+</style>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  
+  gsap.registerPlugin(ScrollTrigger);
+  
+  // コンポーネントが読み込まれた時にアニメーションを実行
+  document.addEventListener('DOMContentLoaded', () => {
+    const philosophyContainer = document.querySelector('.philosophy-container');
+    
+    if (philosophyContainer) {
+      // メインコンテナのアニメーション
+      gsap.fromTo('.philosophy-container', 
+        {
+          opacity: 0,
+          y: 50,
+          scale: 0.95
+        },
+        {
+          opacity: 1,
+          y: 0,
+          scale: 1,
+          duration: 1,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: '.philosophy-container',
+            start: 'top 80%',
+            end: 'bottom 20%',
+            toggleActions: 'play none none reverse'
+          }
+        }
+      );
+      
+      // バッジのアニメーション
+      gsap.fromTo('.philosophy-badge',
+        {
+          opacity: 0,
+          scale: 0.8,
+          rotation: -10
+        },
+        {
+          opacity: 1,
+          scale: 1,
+          rotation: 0,
+          duration: 0.8,
+          ease: "back.out(1.7)",
+          delay: 0.3,
+          scrollTrigger: {
+            trigger: '.philosophy-container',
+            start: 'top 80%',
+            toggleActions: 'play none none reverse'
+          }
+        }
+      );
+      
+      // タイトルのアニメーション（文字ごと）
+      const titleChars = document.querySelector('.philosophy-title span');
+      if (titleChars) {
+        gsap.fromTo('.philosophy-title',
+          {
+            opacity: 0,
+            y: 30
+          },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 1,
+            ease: "power2.out",
+            delay: 0.5,
+            scrollTrigger: {
+              trigger: '.philosophy-container',
+              start: 'top 80%',
+              toggleActions: 'play none none reverse'
+            }
+          }
+        );
+      }
+      
+      // 説明文のアニメーション
+      gsap.fromTo('.philosophy-description',
+        {
+          opacity: 0,
+          y: 20
+        },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          ease: "power2.out",
+          delay: 0.7,
+          scrollTrigger: {
+            trigger: '.philosophy-container',
+            start: 'top 80%',
+            toggleActions: 'play none none reverse'
+          }
+        }
+      );
+      
+      // 価値観カードのスタガーアニメーション
+      gsap.fromTo('.philosophy-value',
+        {
+          opacity: 0,
+          y: 40,
+          rotationX: 15
+        },
+        {
+          opacity: 1,
+          y: 0,
+          rotationX: 0,
+          duration: 0.8,
+          ease: "power3.out",
+          stagger: 0.2,
+          delay: 0.9,
+          scrollTrigger: {
+            trigger: '.philosophy-container',
+            start: 'top 80%',
+            toggleActions: 'play none none reverse'
+          }
+        }
+      );
+      
+      // 各価値観カードのホバーエフェクト（シンプル化）
+      document.querySelectorAll('.philosophy-value').forEach((card, index) => {
+        card.addEventListener('mouseenter', () => {
+          gsap.to(card, {
+            y: -8,
+            scale: 1.02,
+            duration: 0.3,
+            ease: "power2.out"
+          });
+          
+          // アイコンの軽微なエフェクト
+          const icon = card.querySelector('.value-icon');
+          gsap.to(icon, {
+            scale: 1.1,
+            duration: 0.3,
+            ease: "power2.out"
+          });
+        });
+        
+        card.addEventListener('mouseleave', () => {
+          gsap.to(card, {
+            y: 0,
+            scale: 1,
+            duration: 0.3,
+            ease: "power2.out"
+          });
+          
+          const icon = card.querySelector('.value-icon');
+          gsap.to(icon, {
+            scale: 1,
+            duration: 0.3,
+            ease: "power2.out"
+          });
+        });
+      });
+      
+      // 浮遊要素の高度なアニメーション
+      gsap.to('.floating-element', {
+        y: -30,
+        rotation: 360,
+        duration: 8,
+        ease: "none",
+        repeat: -1,
+        yoyo: true,
+        stagger: {
+          each: 2,
+          repeat: -1
+        }
+      });
+    }
+  });
+</script>

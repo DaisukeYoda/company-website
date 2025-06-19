@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import CompanyPhilosophy from '../components/CompanyPhilosophy.astro';
 ---
 
 <Layout 
@@ -57,61 +58,7 @@ import Layout from '../layouts/Layout.astro';
         </p>
       </div>
       
-      <div class="relative bg-gradient-to-br from-white/80 to-white/60 dark:from-gray-800/80 dark:to-gray-800/60 backdrop-blur-xl rounded-3xl p-8 md:p-12 border border-white/20 dark:border-gray-700/20 shadow-2xl overflow-hidden">
-        <!-- 背景パターン -->
-        <div class="absolute inset-0 bg-grid-pattern opacity-5"></div>
-        
-        <!-- 浮遊する要素 -->
-        <div class="absolute -top-4 -right-4 w-16 h-16 bg-gradient-to-br from-primary-400 to-accent-400 rounded-full opacity-20 animate-pulse floating-element"></div>
-        <div class="absolute -bottom-4 -left-4 w-12 h-12 bg-gradient-to-br from-accent-400 to-purple-400 rounded-full opacity-20 animate-pulse delay-1000 floating-element"></div>
-        
-        <div class="relative">
-          <div class="text-center mb-8">
-            <div class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-primary-500 to-accent-500 text-white rounded-full text-lg font-semibold mb-6 company-badge">
-              🏢 企業理念
-            </div>
-            <h3 class="text-4xl md:text-5xl font-bold mb-6 text-gray-900 dark:text-white leading-tight company-title">
-              <span class="hidden sm:inline">
-                <span class="bg-gradient-to-r from-primary-600 to-accent-600 bg-clip-text text-transparent">
-                  テクノロジーで未来を創造
-                </span>
-              </span>
-              <span class="sm:hidden">
-                <span class="bg-gradient-to-r from-primary-600 to-accent-600 bg-clip-text text-transparent">
-                  テクノロジーで<br>未来を創造
-                </span>
-              </span>
-            </h3>
-          </div>
-          
-          <div class="max-w-4xl mx-auto">
-            <div class="space-y-6 company-content">
-              <p class="text-xl text-gray-600 dark:text-gray-300 leading-relaxed company-description text-center">
-                私たちは、テクノロジーの力で人々の生活をより豊かにし、社会の課題を解決することを使命としています。
-                最新技術を駆使し、お客様のビジネスに真の価値を提供します。
-              </p>
-              
-              <div class="grid md:grid-cols-3 gap-6 company-values">
-                <div class="text-center value-item">
-                  <div class="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-primary-500 to-accent-500 rounded-2xl flex items-center justify-center text-white text-xl font-bold value-icon">1</div>
-                  <h4 class="font-semibold text-gray-900 dark:text-white mb-2">革新的なソリューションの提供</h4>
-                  <p class="text-gray-600 dark:text-gray-400 text-sm">最新技術を活用した画期的なソリューションで、お客様のビジネスを革新します。</p>
-                </div>
-                <div class="text-center value-item">
-                  <div class="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-accent-500 to-purple-500 rounded-2xl flex items-center justify-center text-white text-xl font-bold value-icon">2</div>
-                  <h4 class="font-semibold text-gray-900 dark:text-white mb-2">持続可能な技術開発</h4>
-                  <p class="text-gray-600 dark:text-gray-400 text-sm">環境に配慮し、長期的に価値を提供できる技術開発を推進します。</p>
-                </div>
-                <div class="text-center value-item">
-                  <div class="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-purple-500 to-primary-500 rounded-2xl flex items-center justify-center text-white text-xl font-bold value-icon">3</div>
-                  <h4 class="font-semibold text-gray-900 dark:text-white mb-2">お客様との長期的なパートナーシップ</h4>
-                  <p class="text-gray-600 dark:text-gray-400 text-sm">信頼関係を築き、お客様の成長と共に歩むパートナーシップを重視します。</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <CompanyPhilosophy />
     </div>
   </section>
 
